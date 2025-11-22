@@ -4,6 +4,10 @@ import 'main.dart';
 class NavBar extends StatelessWidget {
   const NavBar({super.key});
 
+  void navigateToHome(BuildContext context) {
+    Navigator.of(context).pushNamed('/home');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
