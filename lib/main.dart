@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:union_shop/product_page.dart';
-import 'navbar.dart';
+import 'NavBar.dart';
 
 void main() {
   runApp(const UnionShopApp());
@@ -48,6 +48,7 @@ class HomeScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            const NavBar(),
             // Hero Section
             SizedBox(
               height: 400,
