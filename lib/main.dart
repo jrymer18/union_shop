@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:union_shop/product_page.dart';
+import 'navbar.dart';
 
 void main() {
   runApp(const UnionShopApp());
@@ -46,7 +47,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: const [
-          NavBar(), // instead of the big Container header
+          Navbar(), // instead of the big Container header
           // ...rest of your page widgets...
         ],
       ),
