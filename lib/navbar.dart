@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'main.dart';
 
 class NavBar extends StatelessWidget {
-  const NavBar({super.key});
+  final VoidCallback onPlaceholderPressed;
+
+  const NavBar({
+    super.key,
+    required this.onPlaceholderPressed,
+  });
 
   void navigateToHome(BuildContext context) {
     Navigator.of(context).pushNamed('/home');
