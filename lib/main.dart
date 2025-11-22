@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:union_shop/product_page.dart';
+import 'navbar.dart';
 
 void main() {
   runApp(const UnionShopApp());
