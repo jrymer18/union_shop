@@ -6,6 +6,8 @@ void main() {
   runApp(const UnionShopApp());
 }
 
+void placeholderCallbackForButtons() {}
+
 class UnionShopApp extends StatelessWidget {
   const UnionShopApp({super.key});
 
@@ -30,25 +32,15 @@ class UnionShopApp extends StatelessWidget {
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
-  void navigateToHome(BuildContext context) {
-    Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
-  }
-
-  void navigateToProduct(BuildContext context) {
-    Navigator.pushNamed(context, '/product');
-  }
-
-  void placeholderCallbackForButtons() {
-    // This is the event handler for buttons that don't work yet
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const NavBar(),
+            NavBar(
+              onPlaceholderPressed: placeholderCallbackForButtons,
+            ),
             // Hero Section
             SizedBox(
               height: 400,
