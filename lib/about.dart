@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'navbar.dart';
 
 class AboutPage extends StatelessWidget {
   @override
@@ -7,6 +6,7 @@ class AboutPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('About'),
+        toolbarHeight: 100,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
