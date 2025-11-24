@@ -11,13 +11,19 @@ class AboutPage extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('Welcome to the Union Shop!'),
-          SizedBox(height: 16),
+          Text(
+            'ABOUT US',
+            style: TextStyle(
+              fontSize: 28,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          SizedBox(height: 50),
           Text(
             'We’re dedicated to giving you the very best University branded products, '
             'with a range of clothing and merchandise available to shop all year round! '
             'We even offer an exclusive personalisation service!',
-            textAlign: TextAlign.center,
+            textAlign: TextAlign.left,
           ),
           SizedBox(height: 12),
           Text(
@@ -31,6 +37,7 @@ class AboutPage extends StatelessWidget {
           SizedBox(height: 12),
           Text(
             'Happy shopping!\n\nThe Union Shop & Reception Team',
+            textAlign: TextAlign.left,
           ),
         ],
       ),
