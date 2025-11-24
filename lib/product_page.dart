@@ -16,7 +16,8 @@ class ProductPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        child: Column( // <-- capital C
+        child: Column(
+          // <-- capital C
           children: [
             NavBar(
               onPlaceholderPressed: placeholderCallbackForButtons,
@@ -35,8 +36,6 @@ class ProductPage extends StatelessWidget {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
                       color: Colors.grey[200],
-                    ),
-                  ),
                     ),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(8),
