@@ -11,7 +11,6 @@ class AboutPage extends StatelessWidget {
       body: Center(
         child: Text('This is the About Page'),
       ),
-      drawer: NavBar(),
     );
   }
 }
