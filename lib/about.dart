@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
+import 'navbar.dart';
 
 class AboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('About'),
-        toolbarHeight: 100,
-      ),
       body: Column(
+        children: [
+          NavBar(
+            currentIndex: 2, // adjust index for "About" tab
+          ),
+          Expanded(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          
           Text(
             'ABOUT US',
             style: TextStyle(
