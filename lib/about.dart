@@ -2,47 +2,64 @@ import 'package:flutter/material.dart';
 import 'navbar.dart';
 
 class AboutPage extends StatelessWidget {
+  const AboutPage({super.key});
+
+  void _placeholderCallback() {
+    // TODO: Handle navbar button presses
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          NavBar(
-            currentIndex: 2, // adjust index for "About" tab
-          ),
-          Expanded(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          
-          Text(
-            'ABOUT US',
-            style: TextStyle(
-              fontSize: 28,
-              fontWeight: FontWeight.bold,
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: Column(
+          children: [
+            NavBar(onPlaceholderPressed: _placeholderCallback),
+            const Divider(height: 1),
+            Expanded(
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.all(16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text(
+                      'About us',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 16),
+                    Text(
+                      'Welcome to the Union Shop!\n',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    Text(
+                      'We’re dedicated to giving you the very best University branded products, '
+                      'with a range of clothing and merchandise available to shop all year round! '
+                      'We even offer an exclusive personalisation service!\n\n'
+                      'All online purchases are available for delivery or instore collection!\n\n'
+                      'We hope you enjoy our products as much as we enjoy offering them to you. '
+                      'If you have any questions or comments, please don’t hesitate to contact us '
+                      'at hello@upsu.net.\n\n'
+                      'Happy shopping!\n\n'
+                      'The Union Shop & Reception Team​​​​​​​​​',
+                      style: TextStyle(
+                        fontSize: 16,
+                        height: 1.4,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
-          ),
-          SizedBox(height: 50),
-          Text(
-            'We’re dedicated to giving you the very best University branded products, '
-            'with a range of clothing and merchandise available to shop all year round! '
-            'We even offer an exclusive personalisation service!',
-            textAlign: TextAlign.left,
-          ),
-          SizedBox(height: 12),
-          Text(
-            'All online purchases are available for delivery or instore collection!',
-          ),
-          SizedBox(height: 12),
-          Text(
-            'We hope you enjoy our products as much as we enjoy offering them to you. '
-            'If you have any questions or comments, please don’t hesitate to contact us at hello@upsu.net.',
-          ),
-          SizedBox(height: 12),
-          Text(
-            'Happy shopping!\n\nThe Union Shop & Reception Team',
-            textAlign: TextAlign.left,
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
