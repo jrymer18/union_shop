@@ -14,8 +14,6 @@ void main() async {
   runApp(const UnionShopApp());
 }
 
-class DefaultFirebaseOptions {}
-
 void placeholderCallbackForButtons() {}
 
 class UnionShopApp extends StatelessWidget {
