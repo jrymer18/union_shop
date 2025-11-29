@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'navbar.dart';
+import 'footer.dart';
 
 class AboutPage extends StatelessWidget {
   const AboutPage({super.key});
@@ -62,6 +63,10 @@ class AboutPage extends StatelessWidget {
                 ),
               ),
             ),
+            AppFooter(
+              title: 'Union Shop',
+              subtitle: 'Built for the community.',
+            )
           ],
         ),
       ),
