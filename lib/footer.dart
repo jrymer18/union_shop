@@ -12,8 +12,8 @@ class AppFooter extends StatelessWidget {
     super.key,
     this.title = 'Union Shop',
     this.subtitle = 'Quality goods. Fair prices.',
-    this.backgroundColor = const Color(0xFF111111),
-    this.textColor = Colors.white,
+    this.backgroundColor = const Color.fromARGB(255, 242, 242, 242),
+    this.textColor = const Color.fromARGB(255, 0, 0, 0),
     this.links = const [],
     this.padding = const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
   });
