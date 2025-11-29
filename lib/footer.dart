@@ -22,61 +22,43 @@ class AppFooter extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
+    TextStyle lineStyle(double size, {FontWeight weight = FontWeight.normal}) =>
+        theme.textTheme.bodyMedium!.copyWith(
+          color: textColor,
+          fontSize: size,
+          fontWeight: weight,
+        );
+
     return Container(
       width: double.infinity,
       color: backgroundColor,
       padding: padding,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start, // left aligned
         mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Title + Subtitle
-          Text(
-            title,
-            style: theme.textTheme.titleLarge?.copyWith(
-              color: textColor,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
+          Text('Opening Hours', style: lineStyle(18, weight: FontWeight.bold)),
+          const SizedBox(height: 12),
+          Text('❄️ Winter Break Closure Dates ❄️',
+              style: lineStyle(16, weight: FontWeight.bold)),
           const SizedBox(height: 4),
-          Text(
-            subtitle,
-            style: theme.textTheme.bodyMedium?.copyWith(
-              color: textColor.withOpacity(0.7),
-            ),
-          ),
-
-          if (links.isNotEmpty) ...[
-            const SizedBox(height: 16),
-            Wrap(
-              spacing: 16,
-              runSpacing: 8,
-              children: links
-                  .map(
-                    (link) => InkWell(
-                      onTap: link.onTap,
-                      child: Text(
-                        link.label,
-                        style: theme.textTheme.bodyMedium?.copyWith(
-                          color: textColor.withOpacity(0.85),
-                          decoration: TextDecoration.underline,
-                        ),
-                      ),
-                    ),
-                  )
-                  .toList(),
-            ),
-          ],
-
-          const SizedBox(height: 16),
-          Divider(color: textColor.withOpacity(0.2), height: 1),
+          Text('Closing 4pm 19/12/2025', style: lineStyle(14)),
+          Text('Reopening 10am 05/01/2026', style: lineStyle(14)),
+          Text('Last post date: 12pm on 18/12/2025', style: lineStyle(14)),
+          const SizedBox(height: 12),
+          Text('------------------------', style: lineStyle(14)),
+          const SizedBox(height: 12),
+          Text('(Term Time)', style: lineStyle(14, weight: FontWeight.bold)),
+          Text('Monday - Friday 10am - 4pm', style: lineStyle(14)),
           const SizedBox(height: 8),
-          Text(
-            '© ${DateTime.now().year} Union Shop. All rights reserved.',
-            style: theme.textTheme.bodySmall?.copyWith(
-              color: textColor.withOpacity(0.6),
-            ),
-          ),
+          Text('(Outside of Term Time / Consolidation Weeks)',
+              style: lineStyle(14, weight: FontWeight.bold)),
+          Text('Monday - Friday 10am - 3pm', style: lineStyle(14)),
+          const SizedBox(height: 8),
+          Text('Purchase online 24/7', style: lineStyle(14)),
+          const SizedBox(height: 8),
+          Text('Help and Information',
+              style: lineStyle(14, weight: FontWeight.bold)),
         ],
       ),
     );
