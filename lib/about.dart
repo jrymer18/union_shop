@@ -8,6 +8,10 @@ class AboutPage extends StatelessWidget {
     // TODO: Handle navbar button presses
   }
 
+  void navigateToHome(BuildContext context) {
+    Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
