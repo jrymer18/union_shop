@@ -27,7 +27,7 @@ class UnionShopApp extends StatelessWidget {
       // In your browser, try this link: http://localhost:49856/#/product
       routes: {
         '/product': (context) => const ProductPage(),
-        '/about': (context) => AboutPage(),
+        '/about': (context) => const AboutPage(),
       },
     );
   }
@@ -42,7 +42,7 @@ class HomeScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            NavBar(
+            const NavBar(
               onPlaceholderPressed: placeholderCallbackForButtons,
             ),
             // Hero Section
