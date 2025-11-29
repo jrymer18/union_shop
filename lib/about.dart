@@ -5,9 +5,7 @@ import 'footer.dart';
 class AboutPage extends StatelessWidget {
   const AboutPage({super.key});
 
-  void _placeholderCallback() {
-    // TODO: Handle navbar button presses
-  }
+  void _placeholderCallback() {}
 
   void navigateToHome(BuildContext context) {
     Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
@@ -22,12 +20,12 @@ class AboutPage extends StatelessWidget {
           children: [
             NavBar(onPlaceholderPressed: _placeholderCallback),
             const Divider(height: 1),
-            Expanded(
+            const Expanded(
               child: SingleChildScrollView(
-                padding: const EdgeInsets.all(16),
+                padding: EdgeInsets.all(16),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
+                  children: [
                     Text(
                       'About us',
                       textAlign: TextAlign.center,
@@ -63,7 +61,7 @@ class AboutPage extends StatelessWidget {
                 ),
               ),
             ),
-            AppFooter(
+            const AppFooter(
               title: 'Union Shop',
               subtitle: 'Built for the community.',
             )
