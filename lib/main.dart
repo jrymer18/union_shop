@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:union_shop/product_page.dart';
+import 'package:firebase_core/firebase_core.dart';
+
+import 'firebase_options.dart';
 import 'navbar.dart';
 import 'about.dart';
+import 'product_page.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const UnionShopApp());
 }
+
+class DefaultFirebaseOptions {}
 
 void placeholderCallbackForButtons() {}
 
@@ -20,7 +29,7 @@ class UnionShopApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF4d2963)),
       ),
-      home: const AboutPage(),
+      home: const ProductPage(),
       // By default, the app starts at the '/' route, which is the HomeScreen
       initialRoute: '/',
       // When navigating to '/product', build and return the ProductPage
