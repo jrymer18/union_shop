@@ -28,6 +28,7 @@ class UnionShopApp extends StatelessWidget {
       routes: {
         '/product': (context) => const ProductPage(),
         '/about': (context) => const AboutPage(),
+        '/main': (context) => const UnionShopApp()
       },
     );
   }

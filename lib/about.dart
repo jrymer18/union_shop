@@ -64,7 +64,7 @@ class AboutPage extends StatelessWidget {
             const AppFooter(
               title: 'Union Shop',
               subtitle: 'Built for the community.',
-            )
+            ),
           ],
         ),
       ),
