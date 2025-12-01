@@ -1,0 +1,12 @@
+[
+    {
+      "name": "Classic T-shirt",
+      "price": 20.00,
+      "image": "product1.png"
+    },
+    {
+      "name": "Classic Jumper",
+      "price": 30.00,
+      "image": "product2.png"
+    }
+  ]
