@@ -27,7 +27,7 @@ class UnionShopApp extends StatelessWidget {
       // When navigating to '/product', build and return the ProductPage
       // In your browser, try this link: http://localhost:49856/#/product
       routes: {
-        '/product': (context) => const ProductPage(),
+        // '/product': (context) => const ProductPage(),
         '/about': (context) => const AboutPage(),
         '/main': (context) => const UnionShopApp(),
       },
@@ -65,8 +65,9 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                       child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.black.withValues(alpha: 0.7),
+                        decoration: const BoxDecoration(
+                          color: Color(
+                              0xB3000000), // Equivalent to black with 70% opacity
                         ),
                       ),
                     ),
@@ -84,7 +85,8 @@ class HomeScreen extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 32,
                             fontWeight: FontWeight.bold,
-                            color: CowithValues(alpha:                             height: 1.2,
+                            color: Colors.white,
+                            height: 1.2,
                           ),
                         ),
                         const SizedBox(height: 16),
@@ -103,7 +105,7 @@ class HomeScreen extends StatelessWidget {
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0xFF4d2963),
                             foregroundColor: Colors.white,
-                            shape: const RoundedRectangleBorder(
+                            shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.zero,
                             ),
                           ),
