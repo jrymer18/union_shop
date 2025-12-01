@@ -23,6 +23,7 @@ flutter:
   uses-material-design: true
 
 flutter:
-assets:
-  - assets/images/
-  - assets/data/
+  assets:
+    - assets/products.json
+    - assets/images/product1.png
+    - assets/images/product2.png
