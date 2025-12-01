@@ -57,13 +57,14 @@ class AboutPage extends StatelessWidget {
                         height: 1.4,
                       ),
                     ),
+                    SizedBox(height: 24),
+                    AppFooter(
+                      title: 'Union Shop',
+                      subtitle: 'Built for the community.',
+                    ),
                   ],
                 ),
               ),
-            ),
-            const AppFooter(
-              title: 'Union Shop',
-              subtitle: 'Built for the community.',
             ),
           ],
         ),
