@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'navbar.dart';
 import 'about.dart';
 import 'product_page.dart';
+import 'footer.dart';
 
 void main() {
   runApp(const UnionShopApp());
@@ -20,7 +21,7 @@ class UnionShopApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF4d2963)),
       ),
-      home: const ProductPage(),
+      home: const HomeScreen(),
       // By default, the app starts at the '/' route, which is the HomeScreen
       initialRoute: '/',
       // When navigating to '/product', build and return the ProductPage
@@ -28,7 +29,7 @@ class UnionShopApp extends StatelessWidget {
       routes: {
         '/product': (context) => const ProductPage(),
         '/about': (context) => const AboutPage(),
-        '/main': (context) => const UnionShopApp()
+        '/main': (context) => const UnionShopApp(),
       },
     );
   }
@@ -174,19 +175,9 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
 
-            // Footer
-            Container(
-              width: double.infinity,
-              color: Colors.grey[50],
-              padding: const EdgeInsets.all(24),
-              child: const Text(
-                'Placeholder Footer',
-                style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
+            const AppFooter(
+              title: 'Union Shop',
+              subtitle: 'Built for the community.',
             ),
           ],
         ),
