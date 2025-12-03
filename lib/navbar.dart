@@ -161,6 +161,40 @@ class NavBar extends StatelessWidget {
                   ],
                 ),
               ),
+
+              // RIGHT: icons (search, account, bag)
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  IconButton(
+                    padding: EdgeInsets.zero,
+                    constraints:
+                        const BoxConstraints(minWidth: 32, minHeight: 32),
+                    icon: const Icon(Icons.search, size: 22),
+                    onPressed: () {
+                      // TODO: handle search tap
+                    },
+                  ),
+                  IconButton(
+                    padding: EdgeInsets.zero,
+                    constraints:
+                        const BoxConstraints(minWidth: 32, minHeight: 32),
+                    icon: const Icon(Icons.person_outline, size: 22),
+                    onPressed: () {
+                      // TODO: handle account tap
+                    },
+                  ),
+                  IconButton(
+                    padding: EdgeInsets.zero,
+                    constraints:
+                        const BoxConstraints(minWidth: 32, minHeight: 32),
+                    icon: const Icon(Icons.shopping_bag_outlined, size: 22),
+                    onPressed: () {
+                      // TODO: handle bag tap
+                    },
+                  ),
+                ],
+              ),
             ],
           ),
         );
