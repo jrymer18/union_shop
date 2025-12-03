@@ -59,7 +59,75 @@ class CollectionsPage extends StatelessWidget {
           imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
         ),
         CollectionItem(
-          title: 'Essential Range',
+          title: 'Nike Final Chance',
+          imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+        ),
+        CollectionItem(
+          title: 'Personalisation',
+          imageUrl: 'https://via.placeholder.com/600x400?text=Accessories',
+        ),
+        CollectionItem(
+          title: 'Popular',
+          imageUrl: 'https://via.placeholder.com/600x400?text=Stationery',
+        ),
+        CollectionItem(
+          title: 'Portsmouth City Collection',
+          imageUrl: 'https://via.placeholder.com/600x400?text=Gifts',
+        ),
+        CollectionItem(
+          title: 'Pride Collection',
+          imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+        ),
+        CollectionItem(
+          title: 'Sale',
+          imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+        ),
+        CollectionItem(
+          title: 'Signature & Essential Range',
+          imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+        ),
+        CollectionItem(
+          title: 'Signiture Range',
+          imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+        ),
+        CollectionItem(
+          title: 'Sports Clubs',
+          imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+        ),
+        CollectionItem(
+          title: 'Spring Favourites',
+          imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+        ),
+        CollectionItem(
+          title: 'Student Essentials',
+          imageUrl: 'https://via.placeholder.com/600x400?text=Accessories',
+        ),
+        CollectionItem(
+          title: 'Student Groups',
+          imageUrl: 'https://via.placeholder.com/600x400?text=Stationery',
+        ),
+        CollectionItem(
+          title: 'Summer essentials',
+          imageUrl: 'https://via.placeholder.com/600x400?text=Gifts',
+        ),
+        CollectionItem(
+          title: 'Summer Favourites',
+          imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+        ),
+        CollectionItem(
+          title: 'Univeristy Clothing',
+          imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+        ),
+        CollectionItem(
+          title: 'Univeristy Merchandise',
+          imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+        ),
+        CollectionItem(
+          title: 'UPSU Bears',
+          imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+        ),
+        CollectionItem(
+          title: 'Winter Favourites',
           imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
         ),
       ];
@@ -154,5 +222,3 @@ class _CollectionCard extends StatelessWidget {
     );
   }
 }
-
-// Removed unused class declaration
