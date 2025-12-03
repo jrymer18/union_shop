@@ -67,65 +67,63 @@ class NavBar extends StatelessWidget {
         return Container(
           height: 72,
           color: Colors.white,
-          // remove or reduce horizontal padding so centering is true visual center
-          padding: const EdgeInsets.symmetric(horizontal: 0),
-          width: double.infinity, // ensure full width
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          width: double.infinity,
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.center, // center the items
             children: [
-              if (!isCurrent('/main')) ...[
-                GestureDetector(
-                  onTap: () => navigateToHome(context),
-                  child: const Text(
-                    'Home',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                    ),
-                  ),
+              // Left: "The Union" in purple
+              const Text(
+                'The Union',
+                style: TextStyle(
+                  color: Colors.purple,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
                 ),
-                const SizedBox(width: 24),
-              ],
-              if (!isCurrent('/collections')) ...[
-                GestureDetector(
-                  onTap: () => navigateToShop(context),
-                  child: const Text('Shop'),
+              ),
+
+              // Center: nav items
+              Expanded(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    if (!isCurrent('/main')) ...[
+                      GestureDetector(
+                        onTap: () => navigateToHome(context),
+                        child: const Text(
+                          'Home',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 24),
+                    ],
+                    if (!isCurrent('/collections')) ...[
+                      GestureDetector(
+                        onTap: () => navigateToShop(context),
+                        child: const Text('Shop'),
+                      ),
+                      const SizedBox(width: 24),
+                    ],
+                    if (!isCurrent('/print-shack')) ...[
+                      GestureDetector(
+                        onTap: () => navigateToPrintShack(context),
+                        child: const Text('The Print Shack'),
+                      ),
+                      const SizedBox(width: 24),
+                    ],
+                    if (!isCurrent('/sale')) ...[
+                      GestureDetector(
+                        onTap: () => navigateToSale(context),
+                        child: const Text('Sale'),
+                      ),
+                      const SizedBox(width: 24),
+                    ],
+                    // ...existing code for About, UPSU, etc.
+                  ],
                 ),
-                const SizedBox(width: 24),
-              ],
-              if (!isCurrent('/print-shack')) ...[
-                GestureDetector(
-                  onTap: () => navigateToPrintShack(context),
-                  child: const Text('The Print Shack'),
-                ),
-                const SizedBox(width: 24),
-              ],
-              if (!isCurrent('/sale')) ...[
-                GestureDetector(
-                  onTap: () => navigateToSale(context),
-                  child: const Text(
-                    'SALE!',
-                    style: TextStyle(
-                      color: Colors.red,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 24),
-              ],
-              if (!isCurrent('/about')) ...[
-                GestureDetector(
-                  onTap: () => navigateToAbout(context),
-                  child: const Text('About'),
-                ),
-                const SizedBox(width: 24),
-              ],
-              if (!isCurrent('/upsu')) ...[
-                GestureDetector(
-                  onTap: () => navigateToUpsu(context),
-                  child: const Text('UPSU.net'),
-                ),
-              ],
+              ),
             ],
           ),
         );
