@@ -35,17 +35,13 @@ class UnionShopApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF4d2963)),
       ),
-      home: const ProductPage(),
-      // By default, the app starts at the '/' route, which is the HomeScreen
-      initialRoute: '/',
-      // When navigating to '/product', build and return the ProductPage
-      // In your browser, try this link: http://localhost:49856/#/product
+      initialRoute: '/product',
       routes: {
         '/about': (context) => const AboutPage(),
         '/main': (context) => const UnionShopApp(),
         '/product': (context) => const ProductPage(),
         '/log': (context) => const AuthenticationPage(),
-        '/collections': (context) => const CollectionsPage()
+        '/collections': (context) => const CollectionsPage(),
       },
     );
   }
