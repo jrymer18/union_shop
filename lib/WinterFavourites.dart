@@ -32,54 +32,58 @@ class WinterFavouritesPage extends StatelessWidget {
                 final int crossAxisCount = isMobile ? 2 : 3;
 
                 return SingleChildScrollView(
-                  child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: GridView.count(
-                      crossAxisCount: crossAxisCount,
-                      mainAxisSpacing: 16,
-                      crossAxisSpacing: 16,
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      childAspectRatio: 0.75,
-                      children: const [
-                        _WinterProductCard(
-                          imageUrl: 'https://via.placeholder.com/300x300',
-                          name: 'Winter Hoodie',
-                          price: '£29.99',
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: GridView.count(
+                          crossAxisCount: crossAxisCount,
+                          mainAxisSpacing: 16,
+                          crossAxisSpacing: 16,
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          childAspectRatio: 0.75,
+                          children: const [
+                            _WinterProductCard(
+                              imageUrl: 'https://via.placeholder.com/300x300',
+                              name: 'Winter Hoodie',
+                              price: '£29.99',
+                            ),
+                            _WinterProductCard(
+                              imageUrl: 'https://via.placeholder.com/300x300',
+                              name: 'Beanie Hat',
+                              price: '£9.99',
+                            ),
+                            _WinterProductCard(
+                              imageUrl: 'https://via.placeholder.com/300x300',
+                              name: 'Scarf',
+                              price: '£14.99',
+                            ),
+                            _WinterProductCard(
+                              imageUrl: 'https://via.placeholder.com/300x300',
+                              name: 'Gloves',
+                              price: '£7.99',
+                            ),
+                            _WinterProductCard(
+                              imageUrl: 'https://via.placeholder.com/300x300',
+                              name: 'Fleece Jacket',
+                              price: '£39.99',
+                            ),
+                            _WinterProductCard(
+                              imageUrl: 'https://via.placeholder.com/300x300',
+                              name: 'Thermal Mug',
+                              price: '£12.99',
+                            ),
+                          ],
                         ),
-                        _WinterProductCard(
-                          imageUrl: 'https://via.placeholder.com/300x300',
-                          name: 'Beanie Hat',
-                          price: '£9.99',
-                        ),
-                        _WinterProductCard(
-                          imageUrl: 'https://via.placeholder.com/300x300',
-                          name: 'Scarf',
-                          price: '£14.99',
-                        ),
-                        _WinterProductCard(
-                          imageUrl: 'https://via.placeholder.com/300x300',
-                          name: 'Gloves',
-                          price: '£7.99',
-                        ),
-                        _WinterProductCard(
-                          imageUrl: 'https://via.placeholder.com/300x300',
-                          name: 'Fleece Jacket',
-                          price: '£39.99',
-                        ),
-                        _WinterProductCard(
-                          imageUrl: 'https://via.placeholder.com/300x300',
-                          name: 'Thermal Mug',
-                          price: '£12.99',
-                        ),
-                      ],
-                    ),
+                      ),
+                      const AppFooter(), // footer now scrolls with content
+                    ],
                   ),
                 );
               },
             ),
           ),
-          const AppFooter(),
         ],
       ),
     );
