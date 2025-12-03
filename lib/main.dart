@@ -130,7 +130,7 @@ class HomeScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     const Text(
-                      'PRODUCTS SECTION',
+                      'Essentials Range',
                       style: TextStyle(
                         fontSize: 20,
                         color: Colors.black,
@@ -147,28 +147,66 @@ class HomeScreen extends StatelessWidget {
                       mainAxisSpacing: 48,
                       children: const [
                         ProductCard(
-                          title: 'Placeholder Product 1',
-                          price: '£10.00',
-                          imageUrl:
-                              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
-                        ),
-                        ProductCard(
-                          title: 'Placeholder Product 2',
-                          price: '£15.00',
-                          imageUrl:
-                              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
-                        ),
-                        ProductCard(
-                          title: 'Placeholder Product 3',
+                          title: 'Limited Edition Essential Zip Hoodies',
                           price: '£20.00',
                           imageUrl:
-                              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
+                              'https://lh3.googleusercontent.com/gg-dl/ABS2GSlsTFkq-ne8gM0odRMb7YfNIvWdWRNYMECQPGSWqRwfna8Byxdzk5RRAYn8ZbVJPHf5LdD1WFRiHplRHsHlU7gwsOY_E7d_IBuA8T9qdwiSw2viutcP-gnhm11R_BIe0aHw2bqkhl1IbgbUK8ziWG7wUFSHFaiGF564BmaQmu6tKQ9I=s1024-rj',
                         ),
                         ProductCard(
-                          title: 'Placeholder Product 4',
-                          price: '£25.00',
+                          title: 'Essential T-Shirt',
+                          price: '£10.00',
                           imageUrl:
-                              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
+                              'https://lh3.googleusercontent.com/gg-dl/ABS2GSnol4tZ0DFEzI0umn_dIwAgeYQXrTh-r8rYsiXFVi05pVlrEzo8YRD98gJOhREttu_qS4c3lA6TQsZRYIs9xWGOcxwDwfkqgNU8RaUUXbH-ajDYjBwQsZDDyzIa0v8hjZJHagNQRlIze-vM7fVo0AVhP48A25aKD-2IKMgcgxPu7bc_bg=s1024-rj',
+                        ),
+                        Expanded(
+                          child: Center(
+                            child: Text(
+                              'Signiture Range',
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.black,
+                                letterSpacing: 1,
+                              ),
+                            ),
+                          ),
+                        ),
+                        ProductCard(
+                          title: 'Signature Hoodie',
+                          price: '£32.99',
+                          imageUrl: '',
+                        ),
+                        ProductCard(
+                          title: 'Signature T-Shirt',
+                          price: '£14.99',
+                          imageUrl: '',
+                        ),
+                        Text(
+                          'Portsmouth City Collection',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.black,
+                            letterSpacing: 1,
+                          ),
+                        ),
+                        ProductCard(
+                          title: 'Portsmouth City Postcard',
+                          price: '£1.00',
+                          imageUrl: '',
+                        ),
+                        ProductCard(
+                          title: 'Portsmouth City Magnet',
+                          price: '£4.50',
+                          imageUrl: '',
+                        ),
+                        ProductCard(
+                          title: 'Portsmouth City Bookmark',
+                          price: '£3.00',
+                          imageUrl: '',
+                        ),
+                        ProductCard(
+                          title: 'Portsmouth City Notebook',
+                          price: '£7.50',
+                          imageUrl: '',
                         ),
                       ],
                     ),
