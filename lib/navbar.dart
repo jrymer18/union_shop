@@ -61,7 +61,31 @@ class NavBar extends StatelessWidget {
                   ),
                 ),
 
-                // e.g. your menu / hamburger icon or actions:
+                // NEW: middle icons (search, account, bag)
+                Row(
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.search),
+                      onPressed: () {
+                        // TODO: handle search tap
+                      },
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.person_outline),
+                      onPressed: () {
+                        // TODO: handle account tap
+                      },
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.shopping_bag_outlined),
+                      onPressed: () {
+                        // TODO: handle bag tap
+                      },
+                    ),
+                  ],
+                ),
+
+                // Existing menu / hamburger icon
                 IconButton(
                   icon: const Icon(Icons.menu),
                   onPressed: () {
