@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'navbar.dart';
 import 'footer.dart';
+import 'Advert.dart';
 
 // You can edit each item here:
 class CollectionItem {
