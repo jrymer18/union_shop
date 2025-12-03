@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:union_shop/collections.dart';
 import 'navbar.dart';
 import 'about.dart';
 import 'product_page.dart';
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       title: 'Union Shop',
-      home: AuthenticationPage(),
+      home: CollectionsPage(),
     );
   }
 }
@@ -43,7 +44,8 @@ class UnionShopApp extends StatelessWidget {
         '/about': (context) => const AboutPage(),
         '/main': (context) => const UnionShopApp(),
         '/product': (context) => const ProductPage(),
-        '/log': (context) => const AuthenticationPage()
+        '/log': (context) => const AuthenticationPage(),
+        '/collections': (context) => const CollectionsPage()
       },
     );
   }
