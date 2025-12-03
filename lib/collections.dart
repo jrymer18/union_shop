@@ -21,8 +21,6 @@ class CollectionItem {
 class CollectionsPage extends StatelessWidget {
   const CollectionsPage({super.key});
 
-  void _onPlaceholderPressed() {}
-
   // EDIT THESE TO CONTROL EACH GRID ITEM
   List<CollectionItem> get _items => const [
         CollectionItem(
@@ -191,11 +189,44 @@ class CollectionsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
-    final crossAxisCount = width < 600 ? 2 : 4;
+    final items = _items;
 
-    return CollectionsGrid(
-      items: _items,
+    return Scaffold(
+      body: CustomScrollView(
+        slivers: [
+          const SliverToBoxAdapter(
+            child: AdvertBanner(),
+          ),
+
+          SliverToBoxAdapter(
+            child: NavBar(
+              onPlaceholderPressed: () {},
+            ),
+          ),
+
+          // GRID OF COLLECTIONS
+          SliverPadding(
+            padding: const EdgeInsets.all(16),
+            sliver: SliverGrid(
+              delegate: SliverChildBuilderDelegate(
+                (context, index) => CollectionGridItem(item: items[index]),
+                childCount: items.length,
+              ),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: MediaQuery.of(context).size.width < 600 ? 2 : 4,
+                crossAxisSpacing: 12,
+                mainAxisSpacing: 12,
+                childAspectRatio: 3 / 4,
+              ),
+            ),
+          ),
+
+          // FOOTER
+          const SliverToBoxAdapter(
+            child: AppFooter(),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -233,33 +264,6 @@ class CollectionGridItem extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-}
-
-class CollectionsGrid extends StatelessWidget {
-  final List<CollectionItem> items;
-
-  const CollectionsGrid({super.key, required this.items});
-
-  @override
-  Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
-    final crossAxisCount = width < 600 ? 2 : 4;
-
-    return GridView.builder(
-      padding: const EdgeInsets.all(16),
-      itemCount: items.length,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: crossAxisCount,
-        crossAxisSpacing: 12,
-        mainAxisSpacing: 12,
-        childAspectRatio: 3 / 4,
-      ),
-      itemBuilder: (context, index) {
-        final item = items[index];
-        return CollectionGridItem(item: item);
-      },
     );
   }
 }
