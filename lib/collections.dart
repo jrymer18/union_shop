@@ -137,89 +137,104 @@ class CollectionsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: CustomScrollView(
-        slivers: [
-          SliverToBoxAdapter(
-            child: NavBar(onPlaceholderPressed: _onPlaceholderPressed),
-          ),
-          SliverPadding(
-            padding: const EdgeInsets.all(16),
-            sliver: SliverLayoutBuilder(
-              builder: (context, constraints) {
-                final crossAxisCount = constraints.crossAxisExtent >= 900
-                    ? 3
-                    : constraints.crossAxisExtent >= 600
-                        ? 2
-                        : 1;
+      body: Column(
+        children: [
+          // main scrollable content
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  NavBar(onPlaceholderPressed: _onPlaceholderPressed),
+                  Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: LayoutBuilder(
+                      builder: (context, constraints) {
+                        final crossAxisCount = constraints.maxWidth >= 900
+                            ? 3
+                            : constraints.maxWidth >= 600
+                                ? 2
+                                : 1;
 
-                return SliverGrid(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: crossAxisCount,
-                    mainAxisSpacing: 16,
-                    crossAxisSpacing: 16,
-                    childAspectRatio: 4 / 3,
+                        return GridView.builder(
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: crossAxisCount,
+                            mainAxisSpacing: 16,
+                            crossAxisSpacing: 16,
+                            childAspectRatio: 4 / 3,
+                          ),
+                          itemCount: _items.length,
+                          itemBuilder: (context, index) {
+                            final item = _items[index];
+                            return CollectionCard(
+                              title: item.title,
+                              imageUrl: item.imageUrl,
+                              onTap: item.onTap,
+                            );
+                          },
+                        );
+                      },
+                    ),
                   ),
-                  delegate: SliverChildBuilderDelegate(
-                    (context, index) {
-                      final item = _items[index];
-                      return _CollectionCard(
-                        title: item.title,
-                        imageUrl: item.imageUrl,
-                        onTap: item.onTap,
-                      );
-                    },
-                    childCount: _items.length,
-                  ),
-                );
-              },
+                ],
+              ),
             ),
           ),
-          const SliverToBoxAdapter(
-            child: AppFooter(),
-          ),
+
+          // footer (if you have one)
+          const CustomFooter(),
+
+          // <-- Advert just above the nav bar
+          const AdvertBanner(),
+
+          // navbar at very bottom
+          NavBar(onPlaceholderPressed: _onPlaceholderPressed),
         ],
       ),
     );
   }
 }
 
-class _CollectionCard extends StatelessWidget {
+// Define CollectionCard widget
+class CollectionCard extends StatelessWidget {
   final String title;
   final String imageUrl;
   final VoidCallback? onTap;
 
-  const _CollectionCard({
+  const CollectionCard({
     required this.title,
     required this.imageUrl,
     this.onTap,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
       child: Card(
-        elevation: 4,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Expanded(
-              child: Image.network(
-                imageUrl,
-                fit: BoxFit.cover,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                title,
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
-            ),
+            Image.network(imageUrl),
+            Text(title),
           ],
         ),
       ),
+    );
+  }
+}
+
+// Define CustomFooter widget
+class CustomFooter extends StatelessWidget {
+  const CustomFooter({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      child: const Text('Footer Content'),
     );
   }
 }
