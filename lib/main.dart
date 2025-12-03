@@ -297,3 +297,68 @@ class ProductCard extends StatelessWidget {
     );
   }
 }
+
+class _CollectionCard extends StatelessWidget {
+  final String title;
+  final String imageUrl;
+  final VoidCallback? onTap;
+
+  const _CollectionCard({
+    required this.title,
+    required this.imageUrl,
+    this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(8),
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            // 1) Image at the very back
+            Image.network(
+              imageUrl,
+              fit: BoxFit.cover,
+            ),
+
+            // 2) Optional dark gradient overlay for readability
+            Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    Colors.black.withOpacity(0.55),
+                    Colors.black.withOpacity(0.15),
+                  ],
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.topCenter,
+                ),
+              ),
+            ),
+
+            // 3) Text ON TOP of image
+            Center(
+              child: Text(
+                title,
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  shadows: const [
+                    Shadow(
+                      blurRadius: 6,
+                      color: Colors.black54,
+                      offset: Offset(0, 2),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
