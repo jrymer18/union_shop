@@ -2,10 +2,67 @@ import 'package:flutter/material.dart';
 import 'navbar.dart';
 import 'footer.dart';
 
+// You can edit each item here:
+class CollectionItem {
+  final String title;
+  final String imageUrl;
+  final VoidCallback? onTap;
+
+  const CollectionItem({
+    required this.title,
+    required this.imageUrl,
+    this.onTap,
+  });
+}
+
 class CollectionsPage extends StatelessWidget {
   const CollectionsPage({super.key});
 
   void _onPlaceholderPressed() {}
+
+  // EDIT THESE TO CONTROL EACH GRID ITEM
+  List<CollectionItem> get _items => const [
+        CollectionItem(
+          title: 'Autum Favourites',
+          imageUrl: 'https://via.placeholder.com/600x400?text=Hoodies',
+        ),
+        CollectionItem(
+          title: 'Black Friday',
+          imageUrl: 'https://via.placeholder.com/600x400?text=T-Shirts',
+        ),
+        CollectionItem(
+          title: 'Clothing',
+          imageUrl: 'https://via.placeholder.com/600x400?text=Accessories',
+        ),
+        CollectionItem(
+          title: 'Clothing - Original',
+          imageUrl: 'https://via.placeholder.com/600x400?text=Stationery',
+        ),
+        CollectionItem(
+          title: 'Elections Discounts',
+          imageUrl: 'https://via.placeholder.com/600x400?text=Gifts',
+        ),
+        CollectionItem(
+          title: 'Essential Range',
+          imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+        ),
+        CollectionItem(
+          title: 'Graduation',
+          imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+        ),
+        CollectionItem(
+          title: 'Limited Edition Essential Zip Hoodies',
+          imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+        ),
+        CollectionItem(
+          title: 'Merchandise',
+          imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+        ),
+        CollectionItem(
+          title: 'Essential Range',
+          imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+        ),
+      ];
 
   @override
   Widget build(BuildContext context) {
@@ -13,12 +70,9 @@ class CollectionsPage extends StatelessWidget {
       backgroundColor: Colors.white,
       body: CustomScrollView(
         slivers: [
-          // HEADER (NavBar)
           SliverToBoxAdapter(
             child: NavBar(onPlaceholderPressed: _onPlaceholderPressed),
           ),
-
-          // PAGE CONTENT (your existing grid)
           SliverPadding(
             padding: const EdgeInsets.all(16),
             sliver: SliverLayoutBuilder(
@@ -38,20 +92,19 @@ class CollectionsPage extends StatelessWidget {
                   ),
                   delegate: SliverChildBuilderDelegate(
                     (context, index) {
+                      final item = _items[index];
                       return _CollectionCard(
-                        title: 'Collection ${index + 1}',
-                        imageUrl:
-                            'https://via.placeholder.com/600x400?text=Collection+${index + 1}',
+                        title: item.title,
+                        imageUrl: item.imageUrl,
+                        onTap: item.onTap,
                       );
                     },
-                    childCount: 6,
+                    childCount: _items.length,
                   ),
                 );
               },
             ),
           ),
-
-          // FOOTER (now part of scroll view)
           const SliverToBoxAdapter(
             child: AppFooter(),
           ),
@@ -64,43 +117,42 @@ class CollectionsPage extends StatelessWidget {
 class _CollectionCard extends StatelessWidget {
   final String title;
   final String imageUrl;
+  final VoidCallback? onTap;
 
   const _CollectionCard({
     required this.title,
     required this.imageUrl,
-  });
+    this.onTap,
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(8),
-      child: Stack(
-        fit: StackFit.expand,
-        children: [
-          // Image
-          Image.network(
-            imageUrl,
-            fit: BoxFit.cover,
-          ),
-
-          // Dark overlay for text readability
-          Container(
-            color: Colors.black.withOpacity(0.35),
-          ),
-
-          // Text over the top
-          Center(
-            child: Text(
-              title,
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
+    return GestureDetector(
+      onTap: onTap,
+      child: Card(
+        elevation: 4,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Expanded(
+              child: Image.network(
+                imageUrl,
+                fit: BoxFit.cover,
+              ),
             ),
-          ),
-        ],
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                title,
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
 }
+
+// Removed unused class declaration
