@@ -27,137 +27,164 @@ class CollectionsPage extends StatelessWidget {
   List<CollectionItem> get _items => const [
         CollectionItem(
           title: 'Autum Favourites',
-          imageUrl: 'https://via.placeholder.com/600x400?text=Hoodies',
+          imageUrl:
+              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
           isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Black Friday',
-          imageUrl: 'https://via.placeholder.com/600x400?text=T-Shirts',
+          imageUrl:
+              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
           isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Clothing',
-          imageUrl: 'https://via.placeholder.com/600x400?text=Accessories',
+          imageUrl:
+              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
           isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Clothing - Original',
-          imageUrl: 'https://via.placeholder.com/600x400?text=Stationery',
+          imageUrl:
+              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
           isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Elections Discounts',
-          imageUrl: 'https://via.placeholder.com/600x400?text=Gifts',
+          imageUrl:
+              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
           isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Essential Range',
-          imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+          imageUrl:
+              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
           isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Graduation',
-          imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+          imageUrl:
+              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
           isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Limited Edition Essential Zip Hoodies',
-          imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+          imageUrl:
+              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
           isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Merchandise',
-          imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+          imageUrl:
+              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
           isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Nike Final Chance',
-          imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+          imageUrl:
+              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
           isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Personalisation',
-          imageUrl: 'https://via.placeholder.com/600x400?text=Accessories',
+          imageUrl:
+              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
           isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Popular',
-          imageUrl: 'https://via.placeholder.com/600x400?text=Stationery',
+          imageUrl:
+              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
           isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Portsmouth City Collection',
-          imageUrl: 'https://via.placeholder.com/600x400?text=Gifts',
+          imageUrl:
+              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
           isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Pride Collection',
-          imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+          imageUrl:
+              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
           isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Sale',
-          imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+          imageUrl:
+              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
           isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Signature & Essential Range',
-          imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+          imageUrl:
+              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
           isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Signiture Range',
-          imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+          imageUrl:
+              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
           isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Sports Clubs',
-          imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+          imageUrl:
+              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
           isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Spring Favourites',
-          imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+          imageUrl:
+              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
           isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Student Essentials',
-          imageUrl: 'https://via.placeholder.com/600x400?text=Accessories',
+          imageUrl:
+              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
           isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Student Groups',
-          imageUrl: 'https://via.placeholder.com/600x400?text=Stationery',
+          imageUrl:
+              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
           isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Summer essentials',
-          imageUrl: 'https://via.placeholder.com/600x400?text=Gifts',
+          imageUrl:
+              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
           isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Summer Favourites',
-          imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+          imageUrl:
+              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
           isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Univeristy Clothing',
-          imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+          imageUrl:
+              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
           isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Univeristy Merchandise',
-          imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+          imageUrl:
+              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
           isNetworkImage: true,
         ),
         CollectionItem(
           title: 'UPSU Bears',
-          imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+          imageUrl:
+              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
           isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Winter Favourites',
-          imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+          imageUrl:
+              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
           isNetworkImage: true,
         ),
       ];
