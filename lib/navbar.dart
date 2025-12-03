@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'main.dart';
 
 class NavBar extends StatelessWidget {
   final VoidCallback onPlaceholderPressed;

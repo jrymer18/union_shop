@@ -7,11 +7,13 @@ import 'Advert.dart';
 class CollectionItem {
   final String title;
   final String imageUrl;
+  final bool isNetworkImage;
   final VoidCallback? onTap;
 
   const CollectionItem({
     required this.title,
     required this.imageUrl,
+    this.isNetworkImage = false, // <‑‑ default to asset if not specified
     this.onTap,
   });
 }
@@ -26,110 +28,137 @@ class CollectionsPage extends StatelessWidget {
         CollectionItem(
           title: 'Autum Favourites',
           imageUrl: 'https://via.placeholder.com/600x400?text=Hoodies',
+          isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Black Friday',
           imageUrl: 'https://via.placeholder.com/600x400?text=T-Shirts',
+          isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Clothing',
           imageUrl: 'https://via.placeholder.com/600x400?text=Accessories',
+          isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Clothing - Original',
           imageUrl: 'https://via.placeholder.com/600x400?text=Stationery',
+          isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Elections Discounts',
           imageUrl: 'https://via.placeholder.com/600x400?text=Gifts',
+          isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Essential Range',
           imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+          isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Graduation',
           imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+          isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Limited Edition Essential Zip Hoodies',
           imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+          isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Merchandise',
           imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+          isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Nike Final Chance',
           imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+          isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Personalisation',
           imageUrl: 'https://via.placeholder.com/600x400?text=Accessories',
+          isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Popular',
           imageUrl: 'https://via.placeholder.com/600x400?text=Stationery',
+          isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Portsmouth City Collection',
           imageUrl: 'https://via.placeholder.com/600x400?text=Gifts',
+          isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Pride Collection',
           imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+          isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Sale',
           imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+          isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Signature & Essential Range',
           imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+          isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Signiture Range',
           imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+          isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Sports Clubs',
           imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+          isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Spring Favourites',
           imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+          isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Student Essentials',
           imageUrl: 'https://via.placeholder.com/600x400?text=Accessories',
+          isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Student Groups',
           imageUrl: 'https://via.placeholder.com/600x400?text=Stationery',
+          isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Summer essentials',
           imageUrl: 'https://via.placeholder.com/600x400?text=Gifts',
+          isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Summer Favourites',
           imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+          isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Univeristy Clothing',
           imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+          isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Univeristy Merchandise',
           imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+          isNetworkImage: true,
         ),
         CollectionItem(
           title: 'UPSU Bears',
           imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+          isNetworkImage: true,
         ),
         CollectionItem(
           title: 'Winter Favourites',
           imageUrl: 'https://via.placeholder.com/600x400?text=Sale',
+          isNetworkImage: true,
         ),
       ];
 
@@ -165,10 +194,8 @@ class CollectionsPage extends StatelessWidget {
                   delegate: SliverChildBuilderDelegate(
                     (context, index) {
                       final item = _items[index];
-                      return _CollectionCard(
-                        title: item.title,
-                        imageUrl: item.imageUrl,
-                        onTap: item.onTap,
+                      return CollectionGridItem(
+                        item: item,
                       );
                     },
                     childCount: _items.length,
@@ -186,42 +213,38 @@ class CollectionsPage extends StatelessWidget {
   }
 }
 
-class _CollectionCard extends StatelessWidget {
-  final String title;
-  final String imageUrl;
-  final VoidCallback? onTap;
+class CollectionGridItem extends StatelessWidget {
+  final CollectionItem item;
 
-  const _CollectionCard({
-    required this.title,
-    required this.imageUrl,
-    this.onTap,
-    Key? key,
-  }) : super(key: key);
+  const CollectionGridItem({super.key, required this.item});
 
   @override
   Widget build(BuildContext context) {
+    final imageWidget = item.isNetworkImage
+        ? Image.network(
+            item.imageUrl,
+            fit: BoxFit.cover,
+          )
+        : Image.asset(
+            item.imageUrl,
+            fit: BoxFit.cover,
+          );
+
     return GestureDetector(
-      onTap: onTap,
-      child: Card(
-        elevation: 4,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Expanded(
-              child: Image.network(
-                imageUrl,
-                fit: BoxFit.cover,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                title,
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
-            ),
-          ],
-        ),
+      onTap: item.onTap,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          AspectRatio(
+            aspectRatio: 3 / 2,
+            child: imageWidget,
+          ),
+          const SizedBox(height: 8),
+          Text(
+            item.title,
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+        ],
       ),
     );
   }
