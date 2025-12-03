@@ -35,7 +35,7 @@ class NavBar extends StatelessWidget {
                 GestureDetector(
                   onTap: () => navigateToHome(context),
                   child: const Text(
-                    'Union Shop',
+                    'The Union',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
