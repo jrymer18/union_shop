@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'footer.dart';
+import 'Advert.dart';
 
 class ProductPage extends StatelessWidget {
   const ProductPage({super.key});
@@ -19,6 +20,7 @@ class ProductPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const AdvertBanner(),
             // Header
             Container(
               height: 100,
