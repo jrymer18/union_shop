@@ -191,51 +191,11 @@ class CollectionsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: CustomScrollView(
-        slivers: [
-          const SliverToBoxAdapter(
-            child: AdvertBanner(),
-          ),
-          SliverToBoxAdapter(
-            child: NavBar(onPlaceholderPressed: _onPlaceholderPressed),
-          ),
-          SliverPadding(
-            padding: const EdgeInsets.all(16),
-            sliver: SliverLayoutBuilder(
-              builder: (context, constraints) {
-                final crossAxisCount = constraints.crossAxisExtent >= 900
-                    ? 3
-                    : constraints.crossAxisExtent >= 600
-                        ? 2
-                        : 1;
+    final width = MediaQuery.of(context).size.width;
+    final crossAxisCount = width < 600 ? 2 : 4;
 
-                return SliverGrid(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: crossAxisCount,
-                    mainAxisSpacing: 16,
-                    crossAxisSpacing: 16,
-                    childAspectRatio: 4 / 3,
-                  ),
-                  delegate: SliverChildBuilderDelegate(
-                    (context, index) {
-                      final item = _items[index];
-                      return CollectionGridItem(
-                        item: item,
-                      );
-                    },
-                    childCount: _items.length,
-                  ),
-                );
-              },
-            ),
-          ),
-          const SliverToBoxAdapter(
-            child: AppFooter(),
-          ),
-        ],
-      ),
+    return CollectionsGrid(
+      items: _items,
     );
   }
 }
@@ -273,6 +233,33 @@ class CollectionGridItem extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class CollectionsGrid extends StatelessWidget {
+  final List<CollectionItem> items;
+
+  const CollectionsGrid({super.key, required this.items});
+
+  @override
+  Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    final crossAxisCount = width < 600 ? 2 : 4;
+
+    return GridView.builder(
+      padding: const EdgeInsets.all(16),
+      itemCount: items.length,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: crossAxisCount,
+        crossAxisSpacing: 12,
+        mainAxisSpacing: 12,
+        childAspectRatio: 3 / 4,
+      ),
+      itemBuilder: (context, index) {
+        final item = items[index];
+        return CollectionGridItem(item: item);
+      },
     );
   }
 }
