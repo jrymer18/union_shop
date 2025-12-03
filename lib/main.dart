@@ -7,22 +7,8 @@ import 'footer.dart';
 import 'Authenication.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const UnionShopApp());
 }
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Union Shop',
-      home: CollectionsPage(),
-    );
-  }
-}
-
-void placeholderCallbackForButtons() {}
 
 class UnionShopApp extends StatelessWidget {
   const UnionShopApp({super.key});
@@ -38,7 +24,7 @@ class UnionShopApp extends StatelessWidget {
       initialRoute: '/product',
       routes: {
         '/about': (context) => const AboutPage(),
-        '/main': (context) => const UnionShopApp(),
+        '/main': (context) => const HomeScreen(),
         '/product': (context) => const ProductPage(),
         '/log': (context) => const AuthenticationPage(),
         '/collections': (context) => const CollectionsPage(),
@@ -46,6 +32,8 @@ class UnionShopApp extends StatelessWidget {
     );
   }
 }
+
+void placeholderCallbackForButtons() {}
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -252,9 +240,7 @@ class ProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Navigator.pushNamed(context, '/product');
-      },
+      onTap: () {},
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

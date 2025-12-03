@@ -7,9 +7,7 @@ class AboutPage extends StatelessWidget {
 
   void _placeholderCallback() {}
 
-  void navigateToHome(BuildContext context) {
-    Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
-  }
+  void navigateToHome(BuildContext context) {}
 
   @override
   Widget build(BuildContext context) {

@@ -10,38 +10,35 @@ class NavBar extends StatelessWidget {
   });
 
   void navigateToHome(BuildContext context) {
-    Navigator.of(context).pushNamed('/home');
+    Navigator.pushNamed(context, '/main');
   }
 
-  // Example placeholders for other buttons:
   void navigateToShop(BuildContext context) {
-    Navigator.of(context).pushNamed('/shop');
+    Navigator.pushNamed(context, '/collections');
   }
 
   void navigateToPrintShack(BuildContext context) {
-    Navigator.of(context).pushNamed('/print-shack');
+    onPlaceholderPressed();
   }
 
   void navigateToSale(BuildContext context) {
-    Navigator.of(context).pushNamed('/sale');
+    onPlaceholderPressed();
   }
 
   void navigateToAbout(BuildContext context) {
-    Navigator.of(context).pushNamed('/about');
+    Navigator.pushNamed(context, '/about');
   }
 
   void navigateToUpsu(BuildContext context) {
-    Navigator.of(context).pushNamed('/upsu');
+    onPlaceholderPressed();
   }
 
-  static const double _mobileBreakpoint = 600; // px
+  static const double _mobileBreakpoint = 600;
 
   @override
   Widget build(BuildContext context) {
-    // Get current route name
     final currentRoute = ModalRoute.of(context)?.settings.name;
 
-    // Helper to check if a route is the current page
     bool isCurrent(String routeName) => currentRoute == routeName;
 
     return LayoutBuilder(
@@ -49,7 +46,6 @@ class NavBar extends StatelessWidget {
         final isMobile = constraints.maxWidth < _mobileBreakpoint;
 
         if (isMobile) {
-          // MOBILE NAVBAR (collapsed into sandwich menu)
           return Container(
             height: 56,
             color: Colors.white,
@@ -75,7 +71,7 @@ class NavBar extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 24),
           child: Row(
             children: [
-              if (!isCurrent('/home')) ...[
+              if (!isCurrent('/main')) ...[
                 GestureDetector(
                   onTap: () => navigateToHome(context),
                   child: const Text(
@@ -88,7 +84,7 @@ class NavBar extends StatelessWidget {
                 ),
                 const SizedBox(width: 24),
               ],
-              if (!isCurrent('/shop')) ...[
+              if (!isCurrent('/collections')) ...[
                 GestureDetector(
                   onTap: () => navigateToShop(context),
                   child: const Text('Shop'),
