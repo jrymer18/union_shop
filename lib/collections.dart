@@ -11,47 +11,50 @@ class CollectionsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      // HEADER
-      body: Column(
-        children: [
-          NavBar(onPlaceholderPressed: _onPlaceholderPressed),
+      body: CustomScrollView(
+        slivers: [
+          // HEADER (NavBar)
+          SliverToBoxAdapter(
+            child: NavBar(onPlaceholderPressed: _onPlaceholderPressed),
+          ),
 
-          // PAGE CONTENT
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(16),
-              child: LayoutBuilder(
-                builder: (context, constraints) {
-                  // 3 per row on wide, fewer on small
-                  final crossAxisCount = constraints.maxWidth >= 900
-                      ? 3
-                      : constraints.maxWidth >= 600
-                          ? 2
-                          : 1;
+          // PAGE CONTENT (your existing grid)
+          SliverPadding(
+            padding: const EdgeInsets.all(16),
+            sliver: SliverLayoutBuilder(
+              builder: (context, constraints) {
+                final crossAxisCount = constraints.crossAxisExtent >= 900
+                    ? 3
+                    : constraints.crossAxisExtent >= 600
+                        ? 2
+                        : 1;
 
-                  return GridView.builder(
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: crossAxisCount,
-                      mainAxisSpacing: 16,
-                      crossAxisSpacing: 16,
-                      childAspectRatio: 4 / 3,
-                    ),
-                    itemCount: 6, // number of boxes
-                    itemBuilder: (context, index) {
+                return SliverGrid(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: crossAxisCount,
+                    mainAxisSpacing: 16,
+                    crossAxisSpacing: 16,
+                    childAspectRatio: 4 / 3,
+                  ),
+                  delegate: SliverChildBuilderDelegate(
+                    (context, index) {
                       return _CollectionCard(
                         title: 'Collection ${index + 1}',
                         imageUrl:
                             'https://via.placeholder.com/600x400?text=Collection+${index + 1}',
                       );
                     },
-                  );
-                },
-              ),
+                    childCount: 6,
+                  ),
+                );
+              },
             ),
           ),
 
-          // FOOTER
-          const AppFooter(),
+          // FOOTER (now part of scroll view)
+          const SliverToBoxAdapter(
+            child: AppFooter(),
+          ),
         ],
       ),
     );
