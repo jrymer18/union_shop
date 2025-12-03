@@ -3,9 +3,22 @@ import 'navbar.dart';
 import 'about.dart';
 import 'product_page.dart';
 import 'footer.dart';
+import 'Authenication.dart';
 
 void main() {
-  runApp(const UnionShopApp());
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      title: 'Union Shop',
+      home: AuthenticationPage(),
+    );
+  }
 }
 
 void placeholderCallbackForButtons() {}
@@ -27,10 +40,10 @@ class UnionShopApp extends StatelessWidget {
       // When navigating to '/product', build and return the ProductPage
       // In your browser, try this link: http://localhost:49856/#/product
       routes: {
-        // '/product': (context) => const ProductPage(),
         '/about': (context) => const AboutPage(),
         '/main': (context) => const UnionShopApp(),
-        '/product': (context) => const ProductPage()
+        '/product': (context) => const ProductPage(),
+        '/log': (context) => const AuthenticationPage()
       },
     );
   }
