@@ -13,165 +13,122 @@ class NavBar extends StatelessWidget {
     Navigator.of(context).pushNamed('/home');
   }
 
+  // Example placeholders for other buttons:
+  void navigateToShop(BuildContext context) {
+    Navigator.of(context).pushNamed('/shop');
+  }
+
+  void navigateToPrintShack(BuildContext context) {
+    Navigator.of(context).pushNamed('/print-shack');
+  }
+
+  void navigateToSale(BuildContext context) {
+    Navigator.of(context).pushNamed('/sale');
+  }
+
+  void navigateToAbout(BuildContext context) {
+    Navigator.of(context).pushNamed('/about');
+  }
+
+  void navigateToUpsu(BuildContext context) {
+    Navigator.of(context).pushNamed('/upsu');
+  }
+
   static const double _mobileBreakpoint = 600; // px
 
   @override
   Widget build(BuildContext context) {
+    // Get current route name
+    final currentRoute = ModalRoute.of(context)?.settings.name;
+
+    // Helper to check if a route is the current page
+    bool isCurrent(String routeName) => currentRoute == routeName;
+
     return LayoutBuilder(
       builder: (context, constraints) {
         final isMobile = constraints.maxWidth < _mobileBreakpoint;
 
         if (isMobile) {
-          // MOBILE NAVBAR (collapsed)
+          // MOBILE NAVBAR (collapsed into sandwich menu)
           return Container(
             height: 56,
             color: Colors.white,
+            padding: const EdgeInsets.symmetric(horizontal: 8),
             child: Row(
               children: [
-                IconButton(
-                  icon: const Icon(Icons.menu),
-                  onPressed: onPlaceholderPressed, // e.g. open Drawer / menu
-                ),
-                GestureDetector(
-                  onTap: () => navigateToHome(context),
-                  child: const Text(
-                    'The Union',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                    ),
+                Builder(
+                  builder: (ctx) => IconButton(
+                    icon: const Icon(Icons.menu),
+                    onPressed: () => Scaffold.of(ctx).openDrawer(),
                   ),
                 ),
                 const Spacer(),
-                IconButton(
-                  icon: const Icon(Icons.shopping_cart_outlined),
-                  onPressed: () {
-                    // TODO: navigate to cart
-                  },
-                ),
               ],
             ),
           );
         }
 
-        // DESKTOP / TABLET NAVBAR (full)
+        // DESKTOP / TABLET NAVBAR (show all items except current route)
         return Container(
-          height: 100,
+          height: 72,
           color: Colors.white,
-          child: Column(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: Row(
             children: [
-              // Header
-              Container(
-                height: 100,
-                color: Colors.white,
-                child: Column(
-                  children: [
-                    // Top banner
-                    Container(
-                      width: double.infinity,
-                      padding: const EdgeInsets.symmetric(vertical: 8),
-                      color: const Color(0xFF4d2963),
-                      child: const Text(
-                        'BIG SALE! OUR ESSENTIAL RANGE HAS DROPPED IN PRICE! OVER 20% OFF! COME GRAB YOURS WHILE STOCK LASTS!',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.white, fontSize: 16),
-                      ),
+              if (!isCurrent('/home')) ...[
+                GestureDetector(
+                  onTap: () => navigateToHome(context),
+                  child: const Text(
+                    'Home',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
                     ),
-                    // Main header
-                    Expanded(
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        child: Row(
-                          children: [
-                            GestureDetector(
-                              onTap: () {
-                                navigateToHome(context);
-                              },
-                              child: Image.network(
-                                'https://shop.upsu.net/cdn/shop/files/upsu_300x300.png?v=1614735854',
-                                height: 18,
-                                fit: BoxFit.cover,
-                                errorBuilder: (context, error, stackTrace) {
-                                  return Container(
-                                    color: Colors.grey[300],
-                                    width: 18,
-                                    height: 18,
-                                    child: const Center(
-                                      child: Icon(Icons.image_not_supported,
-                                          color: Colors.grey),
-                                    ),
-                                  );
-                                },
-                              ),
-                            ),
-                            const Spacer(),
-                            ConstrainedBox(
-                              constraints: const BoxConstraints(maxWidth: 600),
-                              child: const Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  IconButton(
-                                    icon: Icon(
-                                      Icons.search,
-                                      size: 18,
-                                      color: Colors.grey,
-                                    ),
-                                    padding: EdgeInsets.all(8),
-                                    constraints: BoxConstraints(
-                                      minWidth: 32,
-                                      minHeight: 32,
-                                    ),
-                                    onPressed: placeholderCallbackForButtons,
-                                  ),
-                                  IconButton(
-                                    icon: Icon(
-                                      Icons.person_outline,
-                                      size: 18,
-                                      color: Colors.grey,
-                                    ),
-                                    padding: EdgeInsets.all(8),
-                                    constraints: BoxConstraints(
-                                      minWidth: 32,
-                                      minHeight: 32,
-                                    ),
-                                    onPressed: placeholderCallbackForButtons,
-                                  ),
-                                  IconButton(
-                                    icon: Icon(
-                                      Icons.shopping_bag_outlined,
-                                      size: 18,
-                                      color: Colors.grey,
-                                    ),
-                                    padding: EdgeInsets.all(8),
-                                    constraints: BoxConstraints(
-                                      minWidth: 32,
-                                      minHeight: 32,
-                                    ),
-                                    onPressed: placeholderCallbackForButtons,
-                                  ),
-                                  IconButton(
-                                    icon: Icon(
-                                      Icons.menu,
-                                      size: 18,
-                                      color: Colors.grey,
-                                    ),
-                                    padding: EdgeInsets.all(8),
-                                    constraints: BoxConstraints(
-                                      minWidth: 32,
-                                      minHeight: 32,
-                                    ),
-                                    onPressed: placeholderCallbackForButtons,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
-              ),
+                const SizedBox(width: 24),
+              ],
+              if (!isCurrent('/shop')) ...[
+                GestureDetector(
+                  onTap: () => navigateToShop(context),
+                  child: const Text('Shop'),
+                ),
+                const SizedBox(width: 24),
+              ],
+              if (!isCurrent('/print-shack')) ...[
+                GestureDetector(
+                  onTap: () => navigateToPrintShack(context),
+                  child: const Text('The Print Shack'),
+                ),
+                const SizedBox(width: 24),
+              ],
+              if (!isCurrent('/sale')) ...[
+                GestureDetector(
+                  onTap: () => navigateToSale(context),
+                  child: const Text(
+                    'SALE!',
+                    style: TextStyle(
+                      color: Colors.red,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 24),
+              ],
+              if (!isCurrent('/about')) ...[
+                GestureDetector(
+                  onTap: () => navigateToAbout(context),
+                  child: const Text('About'),
+                ),
+                const SizedBox(width: 24),
+              ],
+              if (!isCurrent('/upsu')) ...[
+                GestureDetector(
+                  onTap: () => navigateToUpsu(context),
+                  child: const Text('UPSU.net'),
+                ),
+              ],
+              const Spacer(),
             ],
           ),
         );
