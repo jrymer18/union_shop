@@ -50,14 +50,24 @@ class NavBar extends StatelessWidget {
             color: Colors.white,
             padding: const EdgeInsets.symmetric(horizontal: 8),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Builder(
-                  builder: (ctx) => IconButton(
-                    icon: const Icon(Icons.menu),
-                    onPressed: () => Scaffold.of(ctx).openDrawer(),
+                // "The Union" brand for mobile
+                const Text(
+                  'The Union',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-                const Spacer(),
+
+                // e.g. your menu / hamburger icon or actions:
+                IconButton(
+                  icon: const Icon(Icons.menu),
+                  onPressed: () {
+                    // open drawer or show bottom sheet, etc.
+                  },
+                ),
               ],
             ),
           );
