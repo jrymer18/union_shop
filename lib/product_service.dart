@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'product_page.dart';
-import 'product_repository.dart'
+import 'product_repository.dart';
 import 'product_model.dart';
 
 void main() {
