@@ -52,7 +52,6 @@ class NavBar extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                // "The Union" brand for mobile
                 const Text(
                   'The Union',
                   style: TextStyle(
@@ -61,36 +60,40 @@ class NavBar extends StatelessWidget {
                   ),
                 ),
 
-                // NEW: middle icons (search, account, bag)
-                Row(
-                  children: [
-                    IconButton(
-                      icon: const Icon(Icons.search),
-                      onPressed: () {
-                        // TODO: handle search tap
-                      },
-                    ),
-                    IconButton(
-                      icon: const Icon(Icons.person_outline),
-                      onPressed: () {
-                        // TODO: handle account tap
-                      },
-                    ),
-                    IconButton(
-                      icon: const Icon(Icons.shopping_bag_outlined),
-                      onPressed: () {
-                        // TODO: handle bag tap
-                      },
-                    ),
-                  ],
+                // Icons closer to the sandwich menu
+                Padding(
+                  padding: const EdgeInsets.only(right: 4), // pulls them right
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      IconButton(
+                        padding: EdgeInsets.zero,
+                        constraints:
+                            const BoxConstraints(minWidth: 32, minHeight: 32),
+                        icon: const Icon(Icons.search, size: 20),
+                        onPressed: () {},
+                      ),
+                      IconButton(
+                        padding: EdgeInsets.zero,
+                        constraints:
+                            const BoxConstraints(minWidth: 32, minHeight: 32),
+                        icon: const Icon(Icons.person_outline, size: 20),
+                        onPressed: () {},
+                      ),
+                      IconButton(
+                        padding: EdgeInsets.zero,
+                        constraints:
+                            const BoxConstraints(minWidth: 32, minHeight: 32),
+                        icon: const Icon(Icons.shopping_bag_outlined, size: 20),
+                        onPressed: () {},
+                      ),
+                    ],
+                  ),
                 ),
 
-                // Existing menu / hamburger icon
                 IconButton(
                   icon: const Icon(Icons.menu),
-                  onPressed: () {
-                    // open drawer or show bottom sheet, etc.
-                  },
+                  onPressed: () {},
                 ),
               ],
             ),
