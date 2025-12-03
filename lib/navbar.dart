@@ -67,8 +67,11 @@ class NavBar extends StatelessWidget {
         return Container(
           height: 72,
           color: Colors.white,
-          padding: const EdgeInsets.symmetric(horizontal: 24),
+          // remove or reduce horizontal padding so centering is true visual center
+          padding: const EdgeInsets.symmetric(horizontal: 0),
+          width: double.infinity, // ensure full width
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.center, // center the items
             children: [
               if (!isCurrent('/main')) ...[
                 GestureDetector(
@@ -123,7 +126,6 @@ class NavBar extends StatelessWidget {
                   child: const Text('UPSU.net'),
                 ),
               ],
-              const Spacer(),
             ],
           ),
         );

@@ -5,6 +5,7 @@ import 'about.dart';
 import 'product_page.dart';
 import 'footer.dart';
 import 'Authenication.dart';
+import 'Advert.dart';
 
 void main() {
   runApp(const UnionShopApp());
@@ -21,7 +22,7 @@ class UnionShopApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF4d2963)),
       ),
-      initialRoute: '/product',
+      home: const HomeScreen(),
       routes: {
         '/about': (context) => const AboutPage(),
         '/main': (context) => const HomeScreen(),
@@ -41,185 +42,194 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const NavBar(
-              onPlaceholderPressed: placeholderCallbackForButtons,
-            ),
-            // Hero Section
-            SizedBox(
-              height: 400,
-              width: double.infinity,
-              child: Stack(
+      body: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const AdvertBanner(),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
                 children: [
-                  // Background image
-                  Positioned.fill(
-                    child: Container(
-                      decoration: const BoxDecoration(
-                        image: DecorationImage(
-                          image: NetworkImage(
-                            'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-                          ),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      child: Container(
-                        decoration: const BoxDecoration(
-                          color: Color(
-                              0xB3000000), // Equivalent to black with 70% opacity
-                        ),
-                      ),
-                    ),
+                  const NavBar(
+                    onPlaceholderPressed: placeholderCallbackForButtons,
                   ),
-                  // Content overlay
-                  Positioned(
-                    left: 24,
-                    right: 24,
-                    top: 80,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                  // Hero Section
+                  SizedBox(
+                    height: 400,
+                    width: double.infinity,
+                    child: Stack(
                       children: [
-                        const Text(
-                          'Placeholder Hero Title',
-                          style: TextStyle(
-                            fontSize: 32,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                            height: 1.2,
-                          ),
-                        ),
-                        const SizedBox(height: 16),
-                        const Text(
-                          "This is placeholder text for the hero section.",
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.white,
-                            height: 1.5,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                        const SizedBox(height: 32),
-                        ElevatedButton(
-                          onPressed: placeholderCallbackForButtons,
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFF4d2963),
-                            foregroundColor: Colors.white,
-                            shape: const RoundedRectangleBorder(
-                              borderRadius: BorderRadius.zero,
+                        // Background image
+                        Positioned.fill(
+                          child: Container(
+                            decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                image: NetworkImage(
+                                  'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
+                                ),
+                                fit: BoxFit.cover,
+                              ),
                             ),
-                          ),
-                          child: const Text(
-                            'BROWSE PRODUCTS',
-                            style: TextStyle(fontSize: 14, letterSpacing: 1),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-
-            // Products Section
-            Container(
-              color: Colors.white,
-              child: Padding(
-                padding: const EdgeInsets.all(40.0),
-                child: Column(
-                  children: [
-                    const Text(
-                      'Essentials Range',
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.black,
-                        letterSpacing: 1,
-                      ),
-                    ),
-                    const SizedBox(height: 48),
-                    GridView.count(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      crossAxisCount:
-                          MediaQuery.of(context).size.width > 600 ? 2 : 1,
-                      crossAxisSpacing: 24,
-                      mainAxisSpacing: 48,
-                      children: const [
-                        ProductCard(
-                          title: 'Limited Edition Essential Zip Hoodies',
-                          price: '£20.00',
-                          imageUrl:
-                              'https://lh3.googleusercontent.com/gg-dl/ABS2GSlsTFkq-ne8gM0odRMb7YfNIvWdWRNYMECQPGSWqRwfna8Byxdzk5RRAYn8ZbVJPHf5LdD1WFRiHplRHsHlU7gwsOY_E7d_IBuA8T9qdwiSw2viutcP-gnhm11R_BIe0aHw2bqkhl1IbgbUK8ziWG7wUFSHFaiGF564BmaQmu6tKQ9I=s1024-rj',
-                        ),
-                        ProductCard(
-                          title: 'Essential T-Shirt',
-                          price: '£10.00',
-                          imageUrl:
-                              'https://lh3.googleusercontent.com/gg-dl/ABS2GSnol4tZ0DFEzI0umn_dIwAgeYQXrTh-r8rYsiXFVi05pVlrEzo8YRD98gJOhREttu_qS4c3lA6TQsZRYIs9xWGOcxwDwfkqgNU8RaUUXbH-ajDYjBwQsZDDyzIa0v8hjZJHagNQRlIze-vM7fVo0AVhP48A25aKD-2IKMgcgxPu7bc_bg=s1024-rj',
-                        ),
-                        Expanded(
-                          child: Center(
-                            child: Text(
-                              'Signiture Range',
-                              style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.black,
-                                letterSpacing: 1,
+                            child: Container(
+                              decoration: const BoxDecoration(
+                                color: Color(
+                                    0xB3000000), // Equivalent to black with 70% opacity
                               ),
                             ),
                           ),
                         ),
-                        ProductCard(
-                          title: 'Signature Hoodie',
-                          price: '£32.99',
-                          imageUrl: '',
-                        ),
-                        ProductCard(
-                          title: 'Signature T-Shirt',
-                          price: '£14.99',
-                          imageUrl: '',
-                        ),
-                        Text(
-                          'Portsmouth City Collection',
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.black,
-                            letterSpacing: 1,
+                        // Content overlay
+                        Positioned(
+                          left: 24,
+                          right: 24,
+                          top: 80,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              const Text(
+                                'Placeholder Hero Title',
+                                style: TextStyle(
+                                  fontSize: 32,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                  height: 1.2,
+                                ),
+                              ),
+                              const SizedBox(height: 16),
+                              const Text(
+                                "This is placeholder text for the hero section.",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.white,
+                                  height: 1.5,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                              const SizedBox(height: 32),
+                              ElevatedButton(
+                                onPressed: placeholderCallbackForButtons,
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: const Color(0xFF4d2963),
+                                  foregroundColor: Colors.white,
+                                  shape: const RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.zero,
+                                  ),
+                                ),
+                                child: const Text(
+                                  'BROWSE PRODUCTS',
+                                  style:
+                                      TextStyle(fontSize: 14, letterSpacing: 1),
+                                ),
+                              ),
+                            ],
                           ),
-                        ),
-                        ProductCard(
-                          title: 'Portsmouth City Postcard',
-                          price: '£1.00',
-                          imageUrl: '',
-                        ),
-                        ProductCard(
-                          title: 'Portsmouth City Magnet',
-                          price: '£4.50',
-                          imageUrl: '',
-                        ),
-                        ProductCard(
-                          title: 'Portsmouth City Bookmark',
-                          price: '£3.00',
-                          imageUrl: '',
-                        ),
-                        ProductCard(
-                          title: 'Portsmouth City Notebook',
-                          price: '£7.50',
-                          imageUrl: '',
                         ),
                       ],
                     ),
-                  ],
-                ),
+                  ),
+
+                  // Products Section
+                  Container(
+                    color: Colors.white,
+                    child: Padding(
+                      padding: const EdgeInsets.all(40.0),
+                      child: Column(
+                        children: [
+                          const Text(
+                            'Essentials Range',
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.black,
+                              letterSpacing: 1,
+                            ),
+                          ),
+                          const SizedBox(height: 48),
+                          GridView.count(
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            crossAxisCount:
+                                MediaQuery.of(context).size.width > 600 ? 2 : 1,
+                            crossAxisSpacing: 24,
+                            mainAxisSpacing: 48,
+                            children: const [
+                              ProductCard(
+                                title: 'Limited Edition Essential Zip Hoodies',
+                                price: '£20.00',
+                                imageUrl:
+                                    'https://lh3.googleusercontent.com/gg-dl/ABS2GSlsTFkq-ne8gM0odRMb7YfNIvWdWRNYMECQPGSWqRwfna8Byxdzk5RRAYn8ZbVJPHf5LdD1WFRiHplRHsHlU7gwsOY_E7d_IBuA8T9qdwiSw2viutcP-gnhm11R_BIe0aHw2bqkhl1IbgbUK8ziWG7wUFSHFaiGF564BmaQmu6tKQ9I=s1024-rj',
+                              ),
+                              ProductCard(
+                                title: 'Essential T-Shirt',
+                                price: '£10.00',
+                                imageUrl:
+                                    'https://lh3.googleusercontent.com/gg-dl/ABS2GSnol4tZ0DFEzI0umn_dIwAgeYQXrTh-r8rYsiXFVi05pVlrEzo8YRD98gJOhREttu_qS4c3lA6TQsZRYIs9xWGOcxwDwfkqgNU8RaUUXbH-ajDYjBwQsZDDyzIa0v8hjZJHagNQRlIze-vM7fVo0AVhP48A25aKD-2IKMgcgxPu7bc_bg=s1024-rj',
+                              ),
+                              Expanded(
+                                child: Center(
+                                  child: Text(
+                                    'Signiture Range',
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      color: Colors.black,
+                                      letterSpacing: 1,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              ProductCard(
+                                title: 'Signature Hoodie',
+                                price: '£32.99',
+                                imageUrl: '',
+                              ),
+                              ProductCard(
+                                title: 'Signature T-Shirt',
+                                price: '£14.99',
+                                imageUrl: '',
+                              ),
+                              Text(
+                                'Portsmouth City Collection',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.black,
+                                  letterSpacing: 1,
+                                ),
+                              ),
+                              ProductCard(
+                                title: 'Portsmouth City Postcard',
+                                price: '£1.00',
+                                imageUrl: '',
+                              ),
+                              ProductCard(
+                                title: 'Portsmouth City Magnet',
+                                price: '£4.50',
+                                imageUrl: '',
+                              ),
+                              ProductCard(
+                                title: 'Portsmouth City Bookmark',
+                                price: '£3.00',
+                                imageUrl: '',
+                              ),
+                              ProductCard(
+                                title: 'Portsmouth City Notebook',
+                                price: '£7.50',
+                                imageUrl: '',
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+
+                  const AppFooter(
+                    title: 'Union Shop',
+                    subtitle: 'Built for the community.',
+                  ),
+                ],
               ),
             ),
-
-            const AppFooter(
-              title: 'Union Shop',
-              subtitle: 'Built for the community.',
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
