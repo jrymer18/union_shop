@@ -26,7 +26,7 @@ class CollectionsPage extends StatelessWidget {
         CollectionItem(
           title: 'Autum Favourites',
           imageUrl:
-              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
+              'https://lh3.googleusercontent.com/gg-dl/ABS2GSlsTFkq-ne8gM0odRMb7YfNIvWdWRNYMECQPGSWqRwfna8Byxdzk5RRAYn8ZbVJPHf5LdD1WFRiHplRHsHlU7gwsOY_E7d_IBuA8T9qdwiSw2viutcP-gnhm11R_BIe0aHw2bqkhl1IbgbUK8ziWG7wUFSHFaiGF564BmaQmu6tKQ9I=s1024-rj',
           isNetworkImage: true,
         ),
         CollectionItem(
