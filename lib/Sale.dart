@@ -113,37 +113,32 @@ Widget build(BuildContext context) {
 List<CollectionItem> get _items => const [
       CollectionItem(
         title: 'UPSU Winter Hoodie',
-        imageUrl:
-            'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-        isNetworkImage: true,
+        imageUrl: 'assets/images/essentalshoodie.png',
+        isNetworkImage: false,
         price: '£29.99',
       ),
       CollectionItem(
-        title: 'UPSU Pom-Pom Beanie',
-        imageUrl:
-            'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-        isNetworkImage: true,
+        title: 'Beanie',
+        imageUrl: 'assets/images/beanie.png',
+        isNetworkImage: false,
         price: '£14.99',
       ),
       CollectionItem(
-        title: 'UPSU Winter Scarf',
-        imageUrl:
-            'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-        isNetworkImage: true,
+        title: 'Jumper',
+        imageUrl: 'assets/images/neutral_jumper.png',
+        isNetworkImage: false,
         price: '£12.50',
       ),
       CollectionItem(
-        title: 'UPSU Fleece Jacket',
-        imageUrl:
-            'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-        isNetworkImage: true,
+        title: 'Zip Hoodie',
+        imageUrl: 'assets/images/zip_hoodie.png',
+        isNetworkImage: false,
         price: '£39.99',
       ),
       CollectionItem(
-        title: 'UPSU Winter Bundle',
-        imageUrl:
-            'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-        isNetworkImage: true,
+        title: 'bag_cover',
+        imageUrl: 'assets/images/bag_cover.png',
+        isNetworkImage: false,
         price: '£59.99',
       ),
     ];
