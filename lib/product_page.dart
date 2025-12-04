@@ -188,12 +188,13 @@ class ProductPage extends StatelessWidget {
                             ),
                             const SizedBox(height: 8),
                             DropdownButtonFormField<String>(
-                              value: null, // placeholder: no default
-                              decoration: const InputDecoration(
-                                border: OutlineInputBorder(),
-                                contentPadding: EdgeInsets.symmetric(
+                              decoration: InputDecoration(
+                                contentPadding: const EdgeInsets.symmetric(
                                   horizontal: 12,
                                   vertical: 8,
+                                ),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8),
                                 ),
                               ),
                               hint: const Text('Select colour'),
@@ -266,6 +267,26 @@ class ProductPage extends StatelessWidget {
                   ),
 
                   const SizedBox(height: 24),
+
+                  // Add to Cart button
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        // TODO: implement add to cart logic
+                      },
+                      style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 16,
+                        ),
+                        textStyle: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      child: const Text('Add to Cart'),
+                    ),
+                  ),
                 ],
               ),
             ),
