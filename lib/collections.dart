@@ -23,165 +23,138 @@ class CollectionsPage extends StatelessWidget {
   List<CollectionItem> get _items => const [
         CollectionItem(
           title: 'Autum Favourites',
-          imageUrl:
-              'https://lh3.googleusercontent.com/gg-dl/ABS2GSlsTFkq-ne8gM0odRMb7YfNIvWdWRNYMECQPGSWqRwfna8Byxdzk5RRAYn8ZbVJPHf5LdD1WFRiHplRHsHlU7gwsOY_E7d_IBuA8T9qdwiSw2viutcP-gnhm11R_BIe0aHw2bqkhl1IbgbUK8ziWG7wUFSHFaiGF564BmaQmu6tKQ9I=s1024-rj',
-          isNetworkImage: true,
+          imageUrl: 'assets/images/beanie.png',
+          isNetworkImage: false,
         ),
         CollectionItem(
           title: 'Black Friday',
-          imageUrl:
-              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-          isNetworkImage: true,
+          imageUrl: 'assets/images/bag_cover.png',
+          isNetworkImage: false,
         ),
         CollectionItem(
           title: 'Clothing',
-          imageUrl:
-              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-          isNetworkImage: true,
+          imageUrl: 'assets/images/jumper.png',
+          isNetworkImage: false,
         ),
         CollectionItem(
           title: 'Clothing - Original',
-          imageUrl:
-              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-          isNetworkImage: true,
+          imageUrl: 'assets/images/essentalshoodie.png',
+          isNetworkImage: false,
         ),
         CollectionItem(
           title: 'Elections Discounts',
-          imageUrl:
-              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-          isNetworkImage: true,
+          imageUrl: 'assets/images/zip_hoodie.png',
+          isNetworkImage: false,
         ),
         CollectionItem(
           title: 'Essential Range',
-          imageUrl:
-              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-          isNetworkImage: true,
+          imageUrl: 'assets/images/essentalshoodie.png',
+          isNetworkImage: false,
         ),
         CollectionItem(
           title: 'Graduation',
-          imageUrl:
-              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-          isNetworkImage: true,
+          imageUrl: 'assets/images/graduation_bear.png',
+          isNetworkImage: false,
         ),
         CollectionItem(
           title: 'Limited Edition Essential Zip Hoodies',
-          imageUrl:
-              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-          isNetworkImage: true,
+          imageUrl: 'assets/images/zip_hoodie.png',
+          isNetworkImage: false,
         ),
         CollectionItem(
           title: 'Merchandise',
-          imageUrl:
-              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-          isNetworkImage: true,
+          imageUrl: 'assets/images/notebook.png',
+          isNetworkImage: false,
         ),
         CollectionItem(
           title: 'Nike Final Chance',
-          imageUrl:
-              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-          isNetworkImage: true,
+          imageUrl: 'assets/images/s_tshirt.png',
+          isNetworkImage: false,
         ),
         CollectionItem(
           title: 'Personalisation',
-          imageUrl:
-              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-          isNetworkImage: true,
+          imageUrl: 'assets/images/s_hoodie.png',
+          isNetworkImage: false,
         ),
         CollectionItem(
           title: 'Popular',
-          imageUrl:
-              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-          isNetworkImage: true,
+          imageUrl: 'assets/images/essentalshoodie.png',
+          isNetworkImage: false,
         ),
         CollectionItem(
           title: 'Portsmouth City Collection',
-          imageUrl:
-              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-          isNetworkImage: true,
+          imageUrl: 'assets/images/postcard.png',
+          isNetworkImage: false,
         ),
         CollectionItem(
           title: 'Pride Collection',
-          imageUrl:
-              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-          isNetworkImage: true,
+          imageUrl: 'assets/images/essentalshoodie.png',
+          isNetworkImage: false,
         ),
         CollectionItem(
           title: 'Sale',
-          imageUrl:
-              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-          isNetworkImage: true,
+          imageUrl: 'assets/images/s_tshirt.png',
+          isNetworkImage: false,
         ),
         CollectionItem(
           title: 'Signature & Essential Range',
-          imageUrl:
-              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-          isNetworkImage: true,
+          imageUrl: 'assets/images/essentalshoodie.png',
+          isNetworkImage: false,
         ),
         CollectionItem(
           title: 'Signiture Range',
-          imageUrl:
-              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-          isNetworkImage: true,
+          imageUrl: 'assets/images/s_tshirt.png1',
+          isNetworkImage: false,
         ),
         CollectionItem(
           title: 'Sports Clubs',
-          imageUrl:
-              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-          isNetworkImage: true,
+          imageUrl: 'assets/images/s_hoodie.png',
+          isNetworkImage: false,
         ),
         CollectionItem(
           title: 'Spring Favourites',
-          imageUrl:
-              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-          isNetworkImage: true,
+          imageUrl: 'assets/images/s_tshirt.png',
+          isNetworkImage: false,
         ),
         CollectionItem(
           title: 'Student Essentials',
-          imageUrl:
-              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-          isNetworkImage: true,
+          imageUrl: 'assets/images/keep_cup.png',
+          isNetworkImage: false,
         ),
         CollectionItem(
           title: 'Student Groups',
-          imageUrl:
-              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-          isNetworkImage: true,
+          imageUrl: 'assets/images/neutral_jumper.png',
+          isNetworkImage: false,
         ),
         CollectionItem(
           title: 'Summer essentials',
-          imageUrl:
-              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-          isNetworkImage: true,
+          imageUrl: 'assets/images/s_tshirt.png',
+          isNetworkImage: false,
         ),
         CollectionItem(
           title: 'Summer Favourites',
-          imageUrl:
-              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-          isNetworkImage: true,
+          imageUrl: 'assets/images/s_tshirt.png',
+          isNetworkImage: false,
         ),
         CollectionItem(
           title: 'Univeristy Clothing',
-          imageUrl:
-              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-          isNetworkImage: true,
+          imageUrl: 'assets/images/jumper.png',
+          isNetworkImage: false,
         ),
         CollectionItem(
           title: 'Univeristy Merchandise',
-          imageUrl:
-              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-          isNetworkImage: true,
+          imageUrl: 'assets/images/magnet.png',
+          isNetworkImage: false,
         ),
         CollectionItem(
           title: 'UPSU Bears',
-          imageUrl:
-              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-          isNetworkImage: true,
+          imageUrl: 'assets/images/graduation_bear.png',
+          isNetworkImage: false,
         ),
         CollectionItem(
           title: 'Winter Favourites',
-          imageUrl:
-              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-          isNetworkImage: true,
+          imageUrl: 'assets/images/s_hoodie.png',
+          isNetworkImage: false,
         ),
       ];
 
