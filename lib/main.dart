@@ -45,12 +45,15 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        mainAxisSize: MainAxisSize.min,
         children: [
+          // FIXED BANNER (does not scroll)
           const AdvertBanner(),
+
+          // SCROLLABLE CONTENT
           Expanded(
             child: SingleChildScrollView(
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const NavBar(
                     onPlaceholderPressed: placeholderCallbackForButtons,
