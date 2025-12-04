@@ -77,7 +77,7 @@ class ProductPage extends StatelessWidget {
 
                   // Product name
                   const Text(
-                    'Placeholder Product Name',
+                    'Classic Sweatshirts',
                     style: TextStyle(
                       fontSize: 28,
                       fontWeight: FontWeight.bold,
@@ -89,7 +89,7 @@ class ProductPage extends StatelessWidget {
 
                   // Product price
                   const Text(
-                    '£15.00',
+                    '£23.00',
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -110,13 +110,162 @@ class ProductPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 8),
                   const Text(
-                    'This is a placeholder description for the product. Students should replace this with real product information and implement proper data management.',
+                    'Bringing to you, our best selling Classic Sweatshirt. Available in 4 different colours. '
+                    'Soft, comfortable, 50% cotton and 50% polyester.',
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.grey,
                       height: 1.5,
                     ),
                   ),
+
+                  const SizedBox(height: 24),
+
+                  // Size & Colour dropdowns + Quantity selector
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // Size dropdown
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              'Size',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(height: 8),
+                            DropdownButtonFormField<String>(
+                              value: null, // placeholder: no default
+                              decoration: const InputDecoration(
+                                border: OutlineInputBorder(),
+                                contentPadding: EdgeInsets.symmetric(
+                                  horizontal: 12,
+                                  vertical: 8,
+                                ),
+                              ),
+                              hint: const Text('Select size'),
+                              items: const [
+                                DropdownMenuItem(
+                                  value: 'S',
+                                  child: Text('Small'),
+                                ),
+                                DropdownMenuItem(
+                                  value: 'M',
+                                  child: Text('Medium'),
+                                ),
+                                DropdownMenuItem(
+                                  value: 'L',
+                                  child: Text('Large'),
+                                ),
+                                DropdownMenuItem(
+                                  value: 'XL',
+                                  child: Text('X-Large'),
+                                ),
+                              ],
+                              onChanged: (value) {
+                                // TODO: handle size change
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      const SizedBox(width: 16),
+
+                      // Colour dropdown
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              'Colour',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(height: 8),
+                            DropdownButtonFormField<String>(
+                              value: null, // placeholder: no default
+                              decoration: const InputDecoration(
+                                border: OutlineInputBorder(),
+                                contentPadding: EdgeInsets.symmetric(
+                                  horizontal: 12,
+                                  vertical: 8,
+                                ),
+                              ),
+                              hint: const Text('Select colour'),
+                              items: const [
+                                DropdownMenuItem(
+                                  value: 'black',
+                                  child: Text('Black'),
+                                ),
+                                DropdownMenuItem(
+                                  value: 'white',
+                                  child: Text('White'),
+                                ),
+                                DropdownMenuItem(
+                                  value: 'navy',
+                                  child: Text('Navy'),
+                                ),
+                              ],
+                              onChanged: (value) {
+                                // TODO: handle colour change
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  const SizedBox(height: 16),
+
+                  // Quantity selector
+                  Row(
+                    children: [
+                      const Text(
+                        'Quantity',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(width: 16),
+                      Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.grey.shade400),
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            IconButton(
+                              visualDensity: VisualDensity.compact,
+                              icon: const Icon(Icons.remove),
+                              onPressed: () {
+                                // TODO: decrement quantity
+                              },
+                            ),
+                            const Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 8),
+                              child: Text('1'), // placeholder quantity
+                            ),
+                            IconButton(
+                              visualDensity: VisualDensity.compact,
+                              icon: const Icon(Icons.add),
+                              onPressed: () {
+                                // TODO: increment quantity
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  const SizedBox(height: 24),
                 ],
               ),
             ),
