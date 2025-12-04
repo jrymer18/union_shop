@@ -74,10 +74,10 @@ class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
-  _HomePageState createState() => _HomePageState();
+  HomePageState createState() => HomePageState();
 }
 
-class _HomePageState extends State<HomeScreen> {
+class HomePageState extends State<HomeScreen> {
   final _pageController = PageController();
   int _currentPage = 0;
 
@@ -321,7 +321,6 @@ class _HeroSlide extends StatelessWidget {
   final String image;
 
   const _HeroSlide({
-    super.key,
     required this.title,
     required this.subtitle,
     required this.image,
@@ -349,7 +348,7 @@ class _HeroSlide extends StatelessWidget {
         Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
-            color: Colors.black.withOpacity(0.35),
+            color: Colors.black.withAlpha((0.35 * 255).toInt()),
           ),
         ),
         Padding(
