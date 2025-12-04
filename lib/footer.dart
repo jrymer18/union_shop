@@ -33,38 +33,82 @@ class AppFooter extends StatelessWidget {
       width: double.infinity,
       color: backgroundColor,
       padding: padding,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start, // left aligned
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text('Opening Hours', style: lineStyle(18, weight: FontWeight.bold)),
-          const SizedBox(height: 12),
-          Text('❄️ Winter Break Closure Dates ❄️',
-              style: lineStyle(16, weight: FontWeight.bold)),
-          const SizedBox(height: 4),
-          Text('Closing 4pm 19/12/2025', style: lineStyle(14)),
-          Text('Reopening 10am 05/01/2026', style: lineStyle(14)),
-          Text('Last post date: 12pm on 18/12/2025', style: lineStyle(14)),
-          const SizedBox(height: 12),
-          Text('------------------------', style: lineStyle(14)),
-          const SizedBox(height: 12),
-          Text('(Term Time)', style: lineStyle(14, weight: FontWeight.bold)),
-          Text('Monday - Friday 10am - 4pm', style: lineStyle(14)),
-          const SizedBox(height: 8),
-          Text('(Outside of Term Time / Consolidation Weeks)',
-              style: lineStyle(14, weight: FontWeight.bold)),
-          Text('Monday - Friday 10am - 3pm', style: lineStyle(14)),
-          const SizedBox(height: 8),
-          Text('Purchase online 24/7', style: lineStyle(14)),
-          const SizedBox(height: 8),
-          Text('Help and Information',
-              style: lineStyle(14, weight: FontWeight.bold)),
+      child: SizedBox(
+        width: double.infinity,
+        height: MediaQuery.of(context).size.height,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Opening Hours',
+                    style: lineStyle(18, weight: FontWeight.bold)),
+                const SizedBox(height: 12),
+                Text('❄️ Winter Break Closure Dates ❄️',
+                    style: lineStyle(16, weight: FontWeight.bold)),
+                const SizedBox(height: 4),
+                Text('Closing 4pm 19/12/2025', style: lineStyle(14)),
+                Text('Reopening 10am 05/01/2026', style: lineStyle(14)),
+                Text('Last post date: 12pm on 18/12/2025',
+                    style: lineStyle(14)),
+                const SizedBox(height: 12),
+                Text('------------------------', style: lineStyle(14)),
+                const SizedBox(height: 12),
+                Text('(Term Time)',
+                    style: lineStyle(14, weight: FontWeight.bold)),
+                Text('Monday - Friday 10am - 4pm', style: lineStyle(14)),
+                const SizedBox(height: 8),
+                Text('(Outside of Term Time / Consolidation Weeks)',
+                    style: lineStyle(14, weight: FontWeight.bold)),
+                Text('Monday - Friday 10am - 3pm', style: lineStyle(14)),
+                const SizedBox(height: 8),
+                Text('Purchase online 24/7', style: lineStyle(14)),
+                const SizedBox(height: 8),
+                Text('Help and Information',
+                    style: lineStyle(14, weight: FontWeight.bold)),
 
-          const SizedBox(height: 24),
+                const SizedBox(height: 24),
 
-          // --- Fake email subscribe shop ---
-          _EmailSubscribeSection(textColor: textColor),
-        ],
+                // --- Fake email subscribe shop ---
+                _EmailSubscribeSection(textColor: textColor),
+
+                // Add a spacer to push payment methods to the bottom
+                const SizedBox(height: 16),
+                const Divider(),
+                const SizedBox(height: 8),
+              ],
+            ),
+            // Payment methods at the very bottom
+            Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              children: [
+                _PaymentBadge(
+                  label: 'Apple Pay',
+                  icon: Icons.phone_iphone,
+                  textColor: textColor,
+                ),
+                _PaymentBadge(
+                  label: 'Google Pay',
+                  icon: Icons.android,
+                  textColor: textColor,
+                ),
+                _PaymentBadge(
+                  label: 'Visa',
+                  icon: Icons.credit_card,
+                  textColor: textColor,
+                ),
+                _PaymentBadge(
+                  label: 'Mastercard',
+                  icon: Icons.credit_card,
+                  textColor: textColor,
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -157,6 +201,47 @@ class _EmailSubscribeSectionState extends State<_EmailSubscribeSection> {
           ),
         ),
       ],
+    );
+  }
+}
+
+class _PaymentBadge extends StatelessWidget {
+  final String label;
+  final IconData icon;
+  final Color textColor;
+
+  const _PaymentBadge({
+    required this.label,
+    required this.icon,
+    required this.textColor,
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(
+          color: textColor.withOpacity(0.4),
+        ),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, size: 16, color: textColor),
+          const SizedBox(width: 6),
+          Text(
+            label,
+            style: TextStyle(
+              color: textColor,
+              fontSize: 12,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
