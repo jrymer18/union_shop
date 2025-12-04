@@ -45,7 +45,7 @@ final List<_HeroSlideData> _heroSlides = [
   _HeroSlideData(
     title: 'Hungry',
     subtitle: 'We got this',
-    image: 'https://example.com/hero_hungry.jpg',
+    image: 'assets/images/pizza.png',
   ),
   _HeroSlideData(
     title: 'Essentials range - Over 20% OFF!',
