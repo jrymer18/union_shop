@@ -114,35 +114,56 @@ class WinterPage extends StatelessWidget {
 
   List<CollectionItem> get _items => const [
         CollectionItem(
-          title: 'UPSU Winter Hoodie',
+          title: 'Classic Hoodies',
           imageUrl:
               'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
           isNetworkImage: true,
-          price: '£29.99',
+          price: '£25.00',
         ),
         CollectionItem(
-          title: 'UPSU Pom-Pom Beanie',
+          title: 'Keep Cups',
           imageUrl:
               'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
           isNetworkImage: true,
           price: '£14.99',
         ),
         CollectionItem(
-          title: 'UPSU Winter Scarf',
+          title: 'Classic Sweatshirts',
           imageUrl:
               'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
           isNetworkImage: true,
           price: '£12.50',
         ),
         CollectionItem(
-          title: 'UPSU Fleece Jacket',
+          title: 'Classic Beanie Hat',
           imageUrl:
               'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
           isNetworkImage: true,
           price: '£39.99',
         ),
         CollectionItem(
-          title: 'UPSU Winter Bundle',
+          title: 'Reflective Bag Cover',
+          imageUrl:
+              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
+          isNetworkImage: true,
+          price: '£59.99',
+        ),
+        CollectionItem(
+          title: 'Classic Rainbow Hoodies',
+          imageUrl:
+              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
+          isNetworkImage: true,
+          price: '£59.99',
+        ),
+        CollectionItem(
+          title: 'Classic Sweatshirts Neutral',
+          imageUrl:
+              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
+          isNetworkImage: true,
+          price: '£59.99',
+        ),
+        CollectionItem(
+          title: 'Limited Edition UoP Beanies',
           imageUrl:
               'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
           isNetworkImage: true,
