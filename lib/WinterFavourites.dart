@@ -115,58 +115,50 @@ class WinterPage extends StatelessWidget {
   List<CollectionItem> get _items => const [
         CollectionItem(
           title: 'Classic Hoodies',
-          imageUrl:
-              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-          isNetworkImage: true,
+          imageUrl: 'assets/images/essentalshoodie.png',
+          isNetworkImage: false,
           price: '£25.00',
         ),
         CollectionItem(
           title: 'Keep Cups',
-          imageUrl:
-              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-          isNetworkImage: true,
+          imageUrl: 'assets/images/keep_cup.png',
+          isNetworkImage: false,
           price: '£14.99',
         ),
         CollectionItem(
           title: 'Classic Sweatshirts',
-          imageUrl:
-              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-          isNetworkImage: true,
+          imageUrl: 'assets/images/jumper.png',
+          isNetworkImage: false,
           price: '£12.50',
         ),
         CollectionItem(
           title: 'Classic Beanie Hat',
-          imageUrl:
-              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-          isNetworkImage: true,
+          imageUrl: 'assets/images/beanie.png',
+          isNetworkImage: false,
           price: '£39.99',
         ),
         CollectionItem(
           title: 'Reflective Bag Cover',
-          imageUrl:
-              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-          isNetworkImage: true,
+          imageUrl: 'assets/images/bag_cover.png',
+          isNetworkImage: false,
           price: '£59.99',
         ),
         CollectionItem(
           title: 'Classic Rainbow Hoodies',
-          imageUrl:
-              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-          isNetworkImage: true,
+          imageUrl: 'assets/images/essentalshoodie.png',
+          isNetworkImage: false,
           price: '£59.99',
         ),
         CollectionItem(
           title: 'Classic Sweatshirts Neutral',
-          imageUrl:
-              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-          isNetworkImage: true,
+          imageUrl: 'assets/images/neutral_jumper.png',
+          isNetworkImage: false,
           price: '£59.99',
         ),
         CollectionItem(
           title: 'Limited Edition UoP Beanies',
-          imageUrl:
-              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-          isNetworkImage: true,
+          imageUrl: 'assets/images/beanie.png',
+          isNetworkImage: false,
           price: '£59.99',
         ),
       ];
