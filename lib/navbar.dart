@@ -136,27 +136,104 @@ class NavBar extends StatelessWidget {
                       ),
                       const SizedBox(width: 24),
                     ],
-                    if (!isCurrent('/collections')) ...[
-                      GestureDetector(
-                        onTap: () => navigateToShop(context),
-                        child: const Text('Shop'),
-                      ),
-                      const SizedBox(width: 24),
-                    ],
-                    if (!isCurrent('/print-shack')) ...[
-                      GestureDetector(
-                        onTap: () => navigateToPrintShack(context),
-                        child: const Text('The Print Shack'),
-                      ),
-                      const SizedBox(width: 24),
-                    ],
-                    if (!isCurrent('/sale')) ...[
-                      GestureDetector(
-                        onTap: () => navigateToSale(context),
-                        child: const Text('Sale'),
-                      ),
-                      const SizedBox(width: 24),
-                    ],
+
+                    // Mobile: dropdown, Desktop: separate items
+                    LayoutBuilder(
+                      builder: (context, constraints) {
+                        final isMobile = constraints.maxWidth < 600;
+
+                        if (isMobile) {
+                          // DROPDOWN FOR MOBILE
+                          return Row(
+                            children: [
+                              PopupMenuButton<String>(
+                                child: const Row(
+                                  children: [
+                                    Text(
+                                      'Shop',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                    SizedBox(width: 4),
+                                    Icon(
+                                      Icons.arrow_drop_down,
+                                      size: 20,
+                                    ),
+                                  ],
+                                ),
+                                onSelected: (value) {
+                                  switch (value) {
+                                    case 'shop':
+                                      if (!isCurrent('/collections')) {
+                                        navigateToShop(context);
+                                      }
+                                      break;
+                                    case 'print-shack':
+                                      if (!isCurrent('/print-shack')) {
+                                        navigateToPrintShack(context);
+                                      }
+                                      break;
+                                    case 'sale':
+                                      if (!isCurrent('/sale')) {
+                                        navigateToSale(context);
+                                      }
+                                      break;
+                                  }
+                                },
+                                itemBuilder: (context) => [
+                                  if (!isCurrent('/collections'))
+                                    const PopupMenuItem<String>(
+                                      value: 'shop',
+                                      child: Text('Shop'),
+                                    ),
+                                  if (!isCurrent('/print-shack'))
+                                    const PopupMenuItem<String>(
+                                      value: 'print-shack',
+                                      child: Text('The Print Shack'),
+                                    ),
+                                  if (!isCurrent('/sale'))
+                                    const PopupMenuItem<String>(
+                                      value: 'sale',
+                                      child: Text('Sale'),
+                                    ),
+                                ],
+                              ),
+                              const SizedBox(width: 24),
+                            ],
+                          );
+                        }
+
+                        // DESKTOP / LARGE: original separate items
+                        return Row(
+                          children: [
+                            if (!isCurrent('/collections')) ...[
+                              GestureDetector(
+                                onTap: () => navigateToShop(context),
+                                child: const Text('Shop'),
+                              ),
+                              const SizedBox(width: 24),
+                            ],
+                            if (!isCurrent('/print-shack')) ...[
+                              GestureDetector(
+                                onTap: () => navigateToPrintShack(context),
+                                child: const Text('The Print Shack'),
+                              ),
+                              const SizedBox(width: 24),
+                            ],
+                            if (!isCurrent('/sale')) ...[
+                              GestureDetector(
+                                onTap: () => navigateToSale(context),
+                                child: const Text('Sale'),
+                              ),
+                              const SizedBox(width: 24),
+                            ],
+                          ],
+                        );
+                      },
+                    ),
+
                     // ...existing code for About, UPSU, etc.
                   ],
                 ),
