@@ -12,6 +12,8 @@ class AdvertBanner extends StatelessWidget {
       child: const Text(
         'BIG SALE! OUR ESSENTIAL RANGE HAS DROPPED IN PRICE! OVER 20% OFF! COME GRAB YOURS WHILE STOCK LASTS!',
         textAlign: TextAlign.center,
+        softWrap: true,
+        overflow: TextOverflow.visible,
         style: TextStyle(
           color: Colors.white,
           fontWeight: FontWeight.bold,
