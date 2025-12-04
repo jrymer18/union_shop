@@ -38,8 +38,100 @@ class UnionShopApp extends StatelessWidget {
 
 void placeholderCallbackForButtons() {}
 
-class HomeScreen extends StatelessWidget {
+final List<_HeroSlideData> _heroSlides = [
+  _HeroSlideData(
+    title: 'Hungry',
+    subtitle: 'We got this',
+    image: 'https://example.com/hero_hungry.jpg',
+  ),
+  _HeroSlideData(
+    title: 'Essentials range - Over 20% OFF!',
+    subtitle:
+        'Over 20% off our essentals range. Come and grab yours while stock lasts!',
+    image: 'https://example.com/hero_essentials.jpg',
+  ),
+  _HeroSlideData(
+    title: 'The Print Shack',
+    subtitle:
+        'Lets make something uniquely you with our personalisation service - From £3 for one line of text!',
+    image: 'https://example.com/hero_print_shack.jpg',
+  ),
+];
+
+class _HeroSlideData {
+  final String title;
+  final String subtitle;
+  final String image;
+
+  _HeroSlideData({
+    required this.title,
+    required this.subtitle,
+    required this.image,
+  });
+}
+
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomeScreen> {
+  final _pageController = PageController();
+  int _currentPage = 0;
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  Widget _buildHeroCarousel() {
+    return Column(
+      children: [
+        SizedBox(
+          height: 260, // adjust to your hero height
+          child: PageView.builder(
+            controller: _pageController,
+            itemCount: _heroSlides.length,
+            onPageChanged: (index) {
+              setState(() => _currentPage = index);
+            },
+            itemBuilder: (context, index) {
+              final slide = _heroSlides[index];
+              return _HeroSlide(
+                title: slide.title,
+                subtitle: slide.subtitle,
+                image: slide.image,
+              );
+            },
+          ),
+        ),
+        const SizedBox(height: 12),
+        _buildIndicator(),
+      ],
+    );
+  }
+
+  Widget _buildIndicator() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: List.generate(_heroSlides.length, (index) {
+        final isActive = index == _currentPage;
+        return AnimatedContainer(
+          duration: const Duration(milliseconds: 200),
+          margin: const EdgeInsets.symmetric(horizontal: 4),
+          height: 8,
+          width: isActive ? 20 : 8,
+          decoration: BoxDecoration(
+            color: isActive ? Colors.blue : Colors.grey.shade400,
+            borderRadius: BorderRadius.circular(4),
+          ),
+        );
+      }),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,79 +151,7 @@ class HomeScreen extends StatelessWidget {
                     onPlaceholderPressed: placeholderCallbackForButtons,
                   ),
                   // Hero Section
-                  SizedBox(
-                    height: 400,
-                    width: double.infinity,
-                    child: Stack(
-                      children: [
-                        // Background image
-                        Positioned.fill(
-                          child: Container(
-                            decoration: const BoxDecoration(
-                              image: DecorationImage(
-                                image: NetworkImage(
-                                  'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-                                ),
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                            child: Container(
-                              decoration: const BoxDecoration(
-                                color: Color(
-                                    0xB3000000), // Equivalent to black with 70% opacity
-                              ),
-                            ),
-                          ),
-                        ),
-                        // Content overlay
-                        Positioned(
-                          left: 24,
-                          right: 24,
-                          top: 80,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              const Text(
-                                'Placeholder Hero Title',
-                                style: TextStyle(
-                                  fontSize: 32,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
-                                  height: 1.2,
-                                ),
-                              ),
-                              const SizedBox(height: 16),
-                              const Text(
-                                "This is placeholder text for the hero section.",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  color: Colors.white,
-                                  height: 1.5,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                              const SizedBox(height: 32),
-                              ElevatedButton(
-                                onPressed: placeholderCallbackForButtons,
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: const Color(0xFF4d2963),
-                                  foregroundColor: Colors.white,
-                                  shape: const RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.zero,
-                                  ),
-                                ),
-                                child: const Text(
-                                  'BROWSE PRODUCTS',
-                                  style:
-                                      TextStyle(fontSize: 14, letterSpacing: 1),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                  _buildHeroCarousel(), // use this instead of the old hero
 
                   // Products Section
                   Container(
@@ -291,6 +311,75 @@ class ProductCard extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class _HeroSlide extends StatelessWidget {
+  final String title;
+  final String subtitle;
+  final String image;
+
+  const _HeroSlide({
+    super.key,
+    required this.title,
+    required this.subtitle,
+    required this.image,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      fit: StackFit.expand,
+      children: [
+        ClipRRect(
+          borderRadius: BorderRadius.circular(12),
+          child: Image.network(
+            image,
+            fit: BoxFit.cover,
+            errorBuilder: (context, error, stackTrace) => Container(
+              color: Colors.grey.shade300,
+            ),
+            loadingBuilder: (context, child, loadingProgress) {
+              if (loadingProgress == null) return child;
+              return Container(color: Colors.grey.shade300);
+            },
+          ),
+        ),
+        Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
+            color: Colors.black.withOpacity(0.35),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center, // <‑ center vertically
+            crossAxisAlignment:
+                CrossAxisAlignment.center, // <‑ center horizontally
+            children: [
+              Text(
+                title,
+                textAlign: TextAlign.center, // <‑ center text
+                style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                subtitle,
+                textAlign: TextAlign.center, // <‑ center text
+                style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                      color: Colors.white,
+                    ),
+              ),
+              const SizedBox(height: 16),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
