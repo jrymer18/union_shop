@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class NavBar extends StatelessWidget {
   final VoidCallback onPlaceholderPressed;
@@ -47,27 +46,23 @@ class NavBar extends StatelessWidget {
 
         if (isMobile) {
           return Container(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.center,
+            height: 56,
+            color: Colors.white,
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  "The ",
-                  style: GoogleFonts.pacifico(
-                    fontSize: 48,
-                    color: const Color(0xFF3B2364),
+                const Text(
+                  'The Union',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-                Text(
-                  "UNION",
-                  style: GoogleFonts.archivoBlack(
-                    fontSize: 52,
-                    letterSpacing: 2,
-                    color: const Color(0xFF3B2364),
-                  ),
-                ),
+
+                // Icons closer to the sandwich menu
                 Padding(
-                  padding: const EdgeInsets.only(right: 4),
+                  padding: const EdgeInsets.only(right: 4), // pulls them right
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -82,17 +77,30 @@ class NavBar extends StatelessWidget {
                         padding: EdgeInsets.zero,
                         constraints:
                             const BoxConstraints(minWidth: 32, minHeight: 32),
-                        icon: const Icon(Icons.menu, size: 20),
+                        icon: const Icon(Icons.person_outline, size: 20),
+                        onPressed: () {},
+                      ),
+                      IconButton(
+                        padding: EdgeInsets.zero,
+                        constraints:
+                            const BoxConstraints(minWidth: 32, minHeight: 32),
+                        icon: const Icon(Icons.shopping_bag_outlined, size: 20),
                         onPressed: () {},
                       ),
                     ],
                   ),
+                ),
+
+                IconButton(
+                  icon: const Icon(Icons.menu),
+                  onPressed: () {},
                 ),
               ],
             ),
           );
         }
 
+        // DESKTOP / TABLET NAVBAR (show all items except current route)
         return Container(
           height: 72,
           color: Colors.white,
@@ -100,14 +108,17 @@ class NavBar extends StatelessWidget {
           width: double.infinity,
           child: Row(
             children: [
+              // Left: "The Union" in purple
               const Text(
-                'THE UNION',
+                'The Union',
                 style: TextStyle(
-                  color: Color(0xFF4d2963),
+                  color: Colors.purple,
                   fontWeight: FontWeight.bold,
                   fontSize: 18,
                 ),
               ),
+
+              // Center: nav items
               Expanded(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -146,9 +157,12 @@ class NavBar extends StatelessWidget {
                       ),
                       const SizedBox(width: 24),
                     ],
+                    // ...existing code for About, UPSU, etc.
                   ],
                 ),
               ),
+
+              // RIGHT: icons (search, account, bag)
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -157,21 +171,27 @@ class NavBar extends StatelessWidget {
                     constraints:
                         const BoxConstraints(minWidth: 32, minHeight: 32),
                     icon: const Icon(Icons.search, size: 22),
-                    onPressed: () {},
+                    onPressed: () {
+                      // TODO: handle search tap
+                    },
                   ),
                   IconButton(
                     padding: EdgeInsets.zero,
                     constraints:
                         const BoxConstraints(minWidth: 32, minHeight: 32),
                     icon: const Icon(Icons.person_outline, size: 22),
-                    onPressed: () {},
+                    onPressed: () {
+                      // TODO: handle account tap
+                    },
                   ),
                   IconButton(
                     padding: EdgeInsets.zero,
                     constraints:
                         const BoxConstraints(minWidth: 32, minHeight: 32),
                     icon: const Icon(Icons.shopping_bag_outlined, size: 22),
-                    onPressed: () {},
+                    onPressed: () {
+                      // TODO: handle bag tap
+                    },
                   ),
                 ],
               ),
