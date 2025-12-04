@@ -59,8 +59,104 @@ class AppFooter extends StatelessWidget {
           const SizedBox(height: 8),
           Text('Help and Information',
               style: lineStyle(14, weight: FontWeight.bold)),
+
+          const SizedBox(height: 24),
+
+          // --- Fake email subscribe shop ---
+          _EmailSubscribeSection(textColor: textColor),
         ],
       ),
+    );
+  }
+}
+
+class _EmailSubscribeSection extends StatefulWidget {
+  final Color textColor;
+
+  const _EmailSubscribeSection({required this.textColor});
+
+  @override
+  State<_EmailSubscribeSection> createState() => _EmailSubscribeSectionState();
+}
+
+class _EmailSubscribeSectionState extends State<_EmailSubscribeSection> {
+  late final TextEditingController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void _fakeSubscribe() {
+    final email = _controller.text.trim();
+    if (email.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Please enter an email address.')),
+      );
+      return;
+    }
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Subscribed with $email (demo only, no real emails).'),
+      ),
+    );
+    _controller.clear();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final Color textColor = widget.textColor;
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Latest Offers',
+          style: TextStyle(
+            color: textColor,
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        const SizedBox(height: 8),
+        const SizedBox(height: 12),
+        Row(
+          children: [
+            Expanded(
+              child: TextField(
+                controller: _controller,
+                keyboardType: TextInputType.emailAddress,
+                decoration: const InputDecoration(
+                  labelText: 'Email address',
+                  border: OutlineInputBorder(),
+                  isDense: true,
+                ),
+              ),
+            ),
+            const SizedBox(width: 8),
+            ElevatedButton(
+              onPressed: _fakeSubscribe,
+              child: const Text('Subscribe'),
+            ),
+          ],
+        ),
+        const SizedBox(height: 6),
+        Text(
+          'This is a demo form – no real emails will be sent.',
+          style: TextStyle(
+            color: textColor.withOpacity(0.6),
+            fontSize: 11,
+          ),
+        ),
+      ],
     );
   }
 }
