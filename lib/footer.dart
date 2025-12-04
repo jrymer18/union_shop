@@ -214,7 +214,6 @@ class _PaymentBadge extends StatelessWidget {
     required this.label,
     required this.icon,
     required this.textColor,
-    super.key,
   });
 
   @override
