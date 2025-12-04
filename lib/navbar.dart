@@ -60,40 +60,88 @@ class NavBar extends StatelessWidget {
                   ),
                 ),
 
-                // Icons closer to the sandwich menu
-                Padding(
-                  padding: const EdgeInsets.only(right: 4), // pulls them right
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      IconButton(
-                        padding: EdgeInsets.zero,
-                        constraints:
-                            const BoxConstraints(minWidth: 32, minHeight: 32),
-                        icon: const Icon(Icons.search, size: 20),
-                        onPressed: () {},
-                      ),
-                      IconButton(
-                        padding: EdgeInsets.zero,
-                        constraints:
-                            const BoxConstraints(minWidth: 32, minHeight: 32),
-                        icon: const Icon(Icons.person_outline, size: 20),
-                        onPressed: () {},
-                      ),
-                      IconButton(
-                        padding: EdgeInsets.zero,
-                        constraints:
-                            const BoxConstraints(minWidth: 32, minHeight: 32),
-                        icon: const Icon(Icons.shopping_bag_outlined, size: 20),
-                        onPressed: () {},
-                      ),
-                    ],
-                  ),
-                ),
+                // Icons + dropdown menu
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    IconButton(
+                      padding: EdgeInsets.zero,
+                      constraints:
+                          const BoxConstraints(minWidth: 32, minHeight: 32),
+                      icon: const Icon(Icons.search, size: 20),
+                      onPressed: () {},
+                    ),
+                    IconButton(
+                      padding: EdgeInsets.zero,
+                      constraints:
+                          const BoxConstraints(minWidth: 32, minHeight: 32),
+                      icon: const Icon(Icons.person_outline, size: 20),
+                      onPressed: () {},
+                    ),
+                    IconButton(
+                      padding: EdgeInsets.zero,
+                      constraints:
+                          const BoxConstraints(minWidth: 32, minHeight: 32),
+                      icon: const Icon(Icons.shopping_bag_outlined, size: 20),
+                      onPressed: () {},
+                    ),
 
-                IconButton(
-                  icon: const Icon(Icons.menu),
-                  onPressed: () {},
+                    // Actual dropdown menu
+                    PopupMenuButton<String>(
+                      icon: const Icon(Icons.menu),
+                      onSelected: (value) {
+                        // Options don't have to work; placeholders wired where you already have them
+                        switch (value) {
+                          case 'home':
+                            if (!isCurrent('/main')) navigateToHome(context);
+                            break;
+                          case 'shop':
+                            if (!isCurrent('/collections')) {
+                              navigateToShop(context);
+                            }
+                            break;
+                          case 'print-shack':
+                            navigateToPrintShack(context);
+                            break;
+                          case 'sale':
+                            navigateToSale(context);
+                            break;
+                          case 'about':
+                            if (!isCurrent('/about')) navigateToAbout(context);
+                            break;
+                          case 'upsu':
+                            navigateToUpsu(context);
+                            break;
+                        }
+                      },
+                      itemBuilder: (context) => [
+                        const PopupMenuItem<String>(
+                          value: 'home',
+                          child: Text('Home'),
+                        ),
+                        const PopupMenuItem<String>(
+                          value: 'shop',
+                          child: Text('Shop'),
+                        ),
+                        const PopupMenuItem<String>(
+                          value: 'print-shack',
+                          child: Text('The Print Shack'),
+                        ),
+                        const PopupMenuItem<String>(
+                          value: 'sale',
+                          child: Text('Sale'),
+                        ),
+                        const PopupMenuItem<String>(
+                          value: 'about',
+                          child: Text('About'),
+                        ),
+                        const PopupMenuItem<String>(
+                          value: 'upsu',
+                          child: Text('UPSU'),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -108,7 +156,6 @@ class NavBar extends StatelessWidget {
           width: double.infinity,
           child: Row(
             children: [
-              // Left: "The Union" in purple
               const Text(
                 'The Union',
                 style: TextStyle(
@@ -117,8 +164,6 @@ class NavBar extends StatelessWidget {
                   fontSize: 18,
                 ),
               ),
-
-              // Center: nav items
               Expanded(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -136,14 +181,11 @@ class NavBar extends StatelessWidget {
                       ),
                       const SizedBox(width: 24),
                     ],
-
-                    // Mobile: dropdown, Desktop: separate items
                     LayoutBuilder(
                       builder: (context, constraints) {
                         final isMobile = constraints.maxWidth < 600;
 
                         if (isMobile) {
-                          // DROPDOWN FOR MOBILE
                           return Row(
                             children: [
                               PopupMenuButton<String>(
@@ -205,7 +247,6 @@ class NavBar extends StatelessWidget {
                           );
                         }
 
-                        // DESKTOP / LARGE: original separate items
                         return Row(
                           children: [
                             if (!isCurrent('/collections')) ...[
@@ -233,13 +274,10 @@ class NavBar extends StatelessWidget {
                         );
                       },
                     ),
-
                     // ...existing code for About, UPSU, etc.
                   ],
                 ),
               ),
-
-              // RIGHT: icons (search, account, bag)
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
