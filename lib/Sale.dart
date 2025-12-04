@@ -3,13 +3,12 @@ import 'package:union_shop/navbar.dart';
 import 'package:union_shop/footer.dart';
 import 'package:union_shop/Advert.dart';
 
-// You can edit each item here:
 class CollectionItem {
   final String title;
   final String imageUrl;
   final bool isNetworkImage;
   final String price;
-  final String? originalPrice; // NEW
+  final String? originalPrice;
   final VoidCallback? onTap;
 
   const CollectionItem({
@@ -17,7 +16,7 @@ class CollectionItem {
     required this.imageUrl,
     this.isNetworkImage = false,
     required this.price,
-    this.originalPrice, // NEW
+    this.originalPrice,
     this.onTap,
   });
 }
@@ -28,16 +27,11 @@ Widget build(BuildContext context) {
     body: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // 0. Advert banner fixed at the very top (outside scroll)
         const AdvertBanner(),
-
         const SizedBox(height: 16),
-
-        // Scrollable content below
         Expanded(
           child: CustomScrollView(
             slivers: [
-              // 1. NavBar first
               SliverToBoxAdapter(
                 child: NavBar(
                   onPlaceholderPressed: () {
@@ -45,8 +39,6 @@ Widget build(BuildContext context) {
                   },
                 ),
               ),
-
-              // 2. Mock Filter / Sort row just below the NavBar
               SliverToBoxAdapter(
                 child: Padding(
                   padding:
@@ -54,19 +46,15 @@ Widget build(BuildContext context) {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      // Mock Filter By
                       OutlinedButton.icon(
                         onPressed: () {
-                          // TODO: open filter sheet
                           print('Filter by pressed');
                         },
                         icon: const Icon(Icons.filter_list, size: 18),
                         label: const Text('Filter by'),
                       ),
-                      // Mock Sort By
                       OutlinedButton.icon(
                         onPressed: () {
-                          // TODO: open sort options
                           print('Sort by pressed');
                         },
                         icon: const Icon(Icons.sort, size: 18),
@@ -76,8 +64,6 @@ Widget build(BuildContext context) {
                   ),
                 ),
               ),
-
-              // 3. Title
               const SliverToBoxAdapter(
                 child: Padding(
                   padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
@@ -92,8 +78,6 @@ Widget build(BuildContext context) {
                   ),
                 ),
               ),
-
-              // 4. Products grid
               SliverPadding(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 16,
@@ -115,8 +99,6 @@ Widget build(BuildContext context) {
                   ),
                 ),
               ),
-
-              // 5. Footer as part of scroll
               const SliverToBoxAdapter(
                 child: AppFooter(),
               ),
@@ -128,7 +110,6 @@ Widget build(BuildContext context) {
   );
 }
 
-// WINTER COLLECTION ITEMS
 List<CollectionItem> get _items => const [
       CollectionItem(
         title: 'UPSU Winter Hoodie',
@@ -271,14 +252,13 @@ class SalePage extends StatelessWidget {
     );
   }
 
-  // SALE ITEMS
   List<CollectionItem> get _saleItems => const [
         CollectionItem(
           title: 'UPSU Hoodie - 30% OFF',
           imageUrl:
               'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
           isNetworkImage: true,
-          originalPrice: '£29.99', // NEW
+          originalPrice: '£29.99',
           price: '£19.99',
         ),
         CollectionItem(
@@ -286,7 +266,7 @@ class SalePage extends StatelessWidget {
           imageUrl:
               'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
           isNetworkImage: true,
-          originalPrice: '£12.50', // NEW
+          originalPrice: '£12.50',
           price: '£9.99',
         ),
         CollectionItem(
@@ -294,7 +274,7 @@ class SalePage extends StatelessWidget {
           imageUrl:
               'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
           isNetworkImage: true,
-          originalPrice: '£11.99', // NEW
+          originalPrice: '£11.99',
           price: '£8.99',
         ),
         CollectionItem(
@@ -302,7 +282,7 @@ class SalePage extends StatelessWidget {
           imageUrl:
               'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
           isNetworkImage: true,
-          originalPrice: '£39.99', // NEW
+          originalPrice: '£39.99',
           price: '£24.99',
         ),
         CollectionItem(
@@ -310,7 +290,7 @@ class SalePage extends StatelessWidget {
           imageUrl:
               'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
           isNetworkImage: true,
-          originalPrice: '£59.99', // NEW
+          originalPrice: '£59.99',
           price: '£34.99',
         ),
       ];
