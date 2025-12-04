@@ -171,27 +171,21 @@ class NavBar extends StatelessWidget {
                     constraints:
                         const BoxConstraints(minWidth: 32, minHeight: 32),
                     icon: const Icon(Icons.search, size: 22),
-                    onPressed: () {
-                      // TODO: handle search tap
-                    },
+                    onPressed: () {},
                   ),
                   IconButton(
                     padding: EdgeInsets.zero,
                     constraints:
                         const BoxConstraints(minWidth: 32, minHeight: 32),
                     icon: const Icon(Icons.person_outline, size: 22),
-                    onPressed: () {
-                      // TODO: handle account tap
-                    },
+                    onPressed: () {},
                   ),
                   IconButton(
                     padding: EdgeInsets.zero,
                     constraints:
                         const BoxConstraints(minWidth: 32, minHeight: 32),
                     icon: const Icon(Icons.shopping_bag_outlined, size: 22),
-                    onPressed: () {
-                      // TODO: handle bag tap
-                    },
+                    onPressed: () {},
                   ),
                 ],
               ),
