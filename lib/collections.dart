@@ -192,38 +192,67 @@ class CollectionsPage extends StatelessWidget {
     final items = _items;
 
     return Scaffold(
-      body: CustomScrollView(
-        slivers: [
-          const SliverToBoxAdapter(
-            child: AdvertBanner(),
-          ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          //    const NavBar(), // your navbar widget
+          const SizedBox(height: 16),
+          Expanded(
+            child: CustomScrollView(
+              slivers: [
+                const SliverToBoxAdapter(
+                  child: AdvertBanner(),
+                ),
+                SliverToBoxAdapter(
+                  child: NavBar(
+                    onPlaceholderPressed: () {
+                      // Add your desired functionality here
+                      print('Placeholder pressed');
+                    },
+                  ),
+                ),
+                const SliverToBoxAdapter(
+                  child: Padding(
+                    padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
+                    child: Center(
+                      child: Text(
+                        'Collections',
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                const SliverToBoxAdapter(
+                  child: SizedBox(height: 16),
+                ),
+                // GRID OF COLLECTIONS
+                SliverPadding(
+                  padding: const EdgeInsets.all(16),
+                  sliver: SliverGrid(
+                    delegate: SliverChildBuilderDelegate(
+                      (context, index) =>
+                          CollectionGridItem(item: items[index]),
+                      childCount: items.length,
+                    ),
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount:
+                          MediaQuery.of(context).size.width < 600 ? 2 : 4,
+                      crossAxisSpacing: 12,
+                      mainAxisSpacing: 12,
+                      childAspectRatio: 3 / 4,
+                    ),
+                  ),
+                ),
 
-          SliverToBoxAdapter(
-            child: NavBar(
-              onPlaceholderPressed: () {},
+                // FOOTER
+                const SliverToBoxAdapter(
+                  child: AppFooter(),
+                ),
+              ],
             ),
-          ),
-
-          // GRID OF COLLECTIONS
-          SliverPadding(
-            padding: const EdgeInsets.all(16),
-            sliver: SliverGrid(
-              delegate: SliverChildBuilderDelegate(
-                (context, index) => CollectionGridItem(item: items[index]),
-                childCount: items.length,
-              ),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: MediaQuery.of(context).size.width < 600 ? 2 : 4,
-                crossAxisSpacing: 12,
-                mainAxisSpacing: 12,
-                childAspectRatio: 3 / 4,
-              ),
-            ),
-          ),
-
-          // FOOTER
-          const SliverToBoxAdapter(
-            child: AppFooter(),
           ),
         ],
       ),
