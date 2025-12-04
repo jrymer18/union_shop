@@ -39,7 +39,7 @@ class ProductPage extends StatelessWidget {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(8),
                       child: Image.asset(
-                        'assets/images/essentalshoodie.png', // or 'assets/images/essentals_hoodie.png'
+                        'assets/images/jumper.png', // or 'assets/images/essentals_hoodie.png'
                         fit: BoxFit.cover,
                         errorBuilder: (context, error, stackTrace) {
                           return Container(

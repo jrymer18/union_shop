@@ -43,7 +43,7 @@ void placeholderCallbackForButtons() {}
 
 final List<_HeroSlideData> _heroSlides = [
   _HeroSlideData(
-    title: 'Hungry',
+    title: 'Hungry?',
     subtitle: 'We got this',
     image: 'assets/images/pizza.png',
   ),
@@ -51,13 +51,13 @@ final List<_HeroSlideData> _heroSlides = [
     title: 'Essentials range - Over 20% OFF!',
     subtitle:
         'Over 20% off our essentals range. Come and grab yours while stock lasts!',
-    image: 'https://example.com/hero_essentials.jpg',
+    image: 'assets/images/essentalshoodie.png',
   ),
   _HeroSlideData(
     title: 'The Print Shack',
     subtitle:
         'Lets make something uniquely you with our personalisation service - From £3 for one line of text!',
-    image: 'https://example.com/hero_print_shack.jpg',
+    image: 'assets/images/zip_hoodie.png',
   ),
 ];
 
@@ -177,14 +177,12 @@ class _HomePageState extends State<HomeScreen> {
                               ProductCard(
                                 title: 'Limited Edition Essential Zip Hoodies',
                                 price: '£20.00',
-                                imageUrl:
-                                    'https://lh3.googleusercontent.com/gg-dl/ABS2GSlsTFkq-ne8gM0odRMb7YfNIvWdWRNYMECQPGSWqRwfna8Byxdzk5RRAYn8ZbVJPHf5LdD1WFRiHplRHsHlU7gwsOY_E7d_IBuA8T9qdwiSw2viutcP-gnhm11R_BIe0aHw2bqkhl1IbgbUK8ziWG7wUFSHFaiGF564BmaQmu6tKQ9I=s1024-rj',
+                                imageUrl: 'assets/images/zip_hoodie.png',
                               ),
                               ProductCard(
                                 title: 'Essential T-Shirt',
                                 price: '£10.00',
-                                imageUrl:
-                                    'https://lh3.googleusercontent.com/gg-dl/ABS2GSnol4tZ0DFEzI0umn_dIwAgeYQXrTh-r8rYsiXFVi05pVlrEzo8YRD98gJOhREttu_qS4c3lA6TQsZRYIs9xWGOcxwDwfkqgNU8RaUUXbH-ajDYjBwQsZDDyzIa0v8hjZJHagNQRlIze-vM7fVo0AVhP48A25aKD-2IKMgcgxPu7bc_bg=s1024-rj',
+                                imageUrl: 'assets/images/essentalshoodie.png',
                               ),
                               Expanded(
                                 child: Center(
@@ -201,12 +199,12 @@ class _HomePageState extends State<HomeScreen> {
                               ProductCard(
                                 title: 'Signature Hoodie',
                                 price: '£32.99',
-                                imageUrl: '',
+                                imageUrl: 'assets/images/s_hoodie.png',
                               ),
                               ProductCard(
                                 title: 'Signature T-Shirt',
                                 price: '£14.99',
-                                imageUrl: '',
+                                imageUrl: 'assets/images/s_tshirt.png',
                               ),
                               Text(
                                 'Portsmouth City Collection',
@@ -219,22 +217,22 @@ class _HomePageState extends State<HomeScreen> {
                               ProductCard(
                                 title: 'Portsmouth City Postcard',
                                 price: '£1.00',
-                                imageUrl: '',
+                                imageUrl: 'assets/images/postcard.png',
                               ),
                               ProductCard(
                                 title: 'Portsmouth City Magnet',
                                 price: '£4.50',
-                                imageUrl: '',
+                                imageUrl: 'assets/images/magnet.png',
                               ),
                               ProductCard(
                                 title: 'Portsmouth City Bookmark',
                                 price: '£3.00',
-                                imageUrl: '',
+                                imageUrl: 'assets/images/bookmark.png',
                               ),
                               ProductCard(
                                 title: 'Portsmouth City Notebook',
                                 price: '£7.50',
-                                imageUrl: '',
+                                imageUrl: 'assets/images/notebook.png',
                               ),
                             ],
                           ),
