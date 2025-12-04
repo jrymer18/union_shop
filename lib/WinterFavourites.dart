@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'navbar.dart';
-// Removed unused import for 'footer.dart'
+import 'footer.dart';
 import 'Advert.dart';
 
 // You can edit each item here:
@@ -84,7 +84,7 @@ class WinterPage extends StatelessWidget {
                     padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
                     child: Center(
                       child: Text(
-                        'Collections',
+                        'Winter Collection',
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
@@ -94,7 +94,34 @@ class WinterPage extends StatelessWidget {
                   ),
                 ),
 
-                // ...your grid sliver(s) go here...
+                // 4. Products grid
+                SliverPadding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 16,
+                  ),
+                  sliver: SliverGrid(
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 8,
+                      mainAxisSpacing: 8,
+                      childAspectRatio: 0.8,
+                    ),
+                    delegate: SliverChildBuilderDelegate(
+                      (context, index) {
+                        final item = _items[index];
+                        return CollectionGridItem(item: item);
+                      },
+                      childCount: _items.length,
+                    ),
+                  ),
+                ),
+
+                // 5. Footer as part of scroll
+                const SliverToBoxAdapter(
+                  child: AppFooter(),
+                ),
               ],
             ),
           ),
@@ -151,7 +178,7 @@ class CollectionGridItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: item.onTap,
+      onTap: item.onTap ?? () {},
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
