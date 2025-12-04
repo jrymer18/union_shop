@@ -93,7 +93,7 @@ class _HomePageState extends State<HomeScreen> {
     return Column(
       children: [
         SizedBox(
-          height: 260, // adjust to your hero height
+          height: 260,
           child: PageView.builder(
             controller: _pageController,
             itemCount: _heroSlides.length,
@@ -140,10 +140,7 @@ class _HomePageState extends State<HomeScreen> {
     return Scaffold(
       body: Column(
         children: [
-          // FIXED BANNER (does not scroll)
           const AdvertBanner(),
-
-          // SCROLLABLE CONTENT
           Expanded(
             child: SingleChildScrollView(
               child: Column(
@@ -152,10 +149,7 @@ class _HomePageState extends State<HomeScreen> {
                   const NavBar(
                     onPlaceholderPressed: placeholderCallbackForButtons,
                   ),
-                  // Hero Section
-                  _buildHeroCarousel(), // use this instead of the old hero
-
-                  // Products Section
+                  _buildHeroCarousel(),
                   Container(
                     color: Colors.white,
                     child: Padding(
@@ -247,7 +241,6 @@ class _HomePageState extends State<HomeScreen> {
                       ),
                     ),
                   ),
-
                   const AppFooter(
                     title: 'Union Shop',
                     subtitle: 'Built for the community.',
@@ -356,13 +349,12 @@ class _HeroSlide extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(24),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center, // <‑ center vertically
-            crossAxisAlignment:
-                CrossAxisAlignment.center, // <‑ center horizontally
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
                 title,
-                textAlign: TextAlign.center, // <‑ center text
+                textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
@@ -371,7 +363,7 @@ class _HeroSlide extends StatelessWidget {
               const SizedBox(height: 8),
               Text(
                 subtitle,
-                textAlign: TextAlign.center, // <‑ center text
+                textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                       color: Colors.white,
                     ),
