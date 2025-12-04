@@ -3,7 +3,6 @@ import 'navbar.dart';
 import 'footer.dart';
 import 'Advert.dart';
 
-// You can edit each item here:
 class CollectionItem {
   final String title;
   final String imageUrl;
@@ -13,7 +12,7 @@ class CollectionItem {
   const CollectionItem({
     required this.title,
     required this.imageUrl,
-    this.isNetworkImage = false, // <‑‑ default to asset if not specified
+    this.isNetworkImage = false,
     this.onTap,
   });
 }
@@ -21,7 +20,6 @@ class CollectionItem {
 class CollectionsPage extends StatelessWidget {
   const CollectionsPage({super.key});
 
-  // EDIT THESE TO CONTROL EACH GRID ITEM
   List<CollectionItem> get _items => const [
         CollectionItem(
           title: 'Autum Favourites',
@@ -195,7 +193,6 @@ class CollectionsPage extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          //    const NavBar(), // your navbar widget
           const SizedBox(height: 16),
           Expanded(
             child: CustomScrollView(
@@ -206,7 +203,6 @@ class CollectionsPage extends StatelessWidget {
                 SliverToBoxAdapter(
                   child: NavBar(
                     onPlaceholderPressed: () {
-                      // Add your desired functionality here
                       print('Placeholder pressed');
                     },
                   ),
@@ -228,7 +224,6 @@ class CollectionsPage extends StatelessWidget {
                 const SliverToBoxAdapter(
                   child: SizedBox(height: 16),
                 ),
-                // GRID OF COLLECTIONS
                 SliverPadding(
                   padding: const EdgeInsets.all(16),
                   sliver: SliverGrid(
@@ -246,8 +241,6 @@ class CollectionsPage extends StatelessWidget {
                     ),
                   ),
                 ),
-
-                // FOOTER
                 const SliverToBoxAdapter(
                   child: AppFooter(),
                 ),

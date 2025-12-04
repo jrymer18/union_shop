@@ -10,9 +10,7 @@ class ProductPage extends StatelessWidget {
     Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
   }
 
-  void placeholderCallbackForButtons() {
-    // This is the event handler for buttons that don't work yet
-  }
+  void placeholderCallbackForButtons() {}
 
   @override
   Widget build(BuildContext context) {
@@ -22,19 +20,15 @@ class ProductPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const AdvertBanner(),
-
             NavBar(
               onPlaceholderPressed: placeholderCallbackForButtons,
             ),
-
-            // Product details
             Container(
               color: Colors.white,
               padding: const EdgeInsets.all(24),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Product image
                   Container(
                     height: 300,
                     width: double.infinity,
@@ -72,10 +66,7 @@ class ProductPage extends StatelessWidget {
                       ),
                     ),
                   ),
-
                   const SizedBox(height: 24),
-
-                  // Product name
                   const Text(
                     'Classic Sweatshirts',
                     style: TextStyle(
@@ -84,10 +75,7 @@ class ProductPage extends StatelessWidget {
                       color: Colors.black,
                     ),
                   ),
-
                   const SizedBox(height: 12),
-
-                  // Product price
                   const Text(
                     '£23.00',
                     style: TextStyle(
@@ -96,10 +84,7 @@ class ProductPage extends StatelessWidget {
                       color: Color(0xFF4d2963),
                     ),
                   ),
-
                   const SizedBox(height: 24),
-
-                  // Product description
                   const Text(
                     'Description',
                     style: TextStyle(
@@ -118,14 +103,10 @@ class ProductPage extends StatelessWidget {
                       height: 1.5,
                     ),
                   ),
-
                   const SizedBox(height: 24),
-
-                  // Size & Colour dropdowns + Quantity selector
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // Size dropdown
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -138,7 +119,7 @@ class ProductPage extends StatelessWidget {
                             ),
                             const SizedBox(height: 8),
                             DropdownButtonFormField<String>(
-                              value: null, // placeholder: no default
+                              value: null,
                               decoration: const InputDecoration(
                                 border: OutlineInputBorder(),
                                 contentPadding: EdgeInsets.symmetric(
@@ -165,17 +146,12 @@ class ProductPage extends StatelessWidget {
                                   child: Text('X-Large'),
                                 ),
                               ],
-                              onChanged: (value) {
-                                // TODO: handle size change
-                              },
+                              onChanged: (value) {},
                             ),
                           ],
                         ),
                       ),
-
                       const SizedBox(width: 16),
-
-                      // Colour dropdown
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -212,19 +188,14 @@ class ProductPage extends StatelessWidget {
                                   child: Text('Navy'),
                                 ),
                               ],
-                              onChanged: (value) {
-                                // TODO: handle colour change
-                              },
+                              onChanged: (value) {},
                             ),
                           ],
                         ),
                       ),
                     ],
                   ),
-
                   const SizedBox(height: 16),
-
-                  // Quantity selector
                   Row(
                     children: [
                       const Text(
@@ -245,36 +216,27 @@ class ProductPage extends StatelessWidget {
                             IconButton(
                               visualDensity: VisualDensity.compact,
                               icon: const Icon(Icons.remove),
-                              onPressed: () {
-                                // TODO: decrement quantity
-                              },
+                              onPressed: () {},
                             ),
                             const Padding(
                               padding: EdgeInsets.symmetric(horizontal: 8),
-                              child: Text('1'), // placeholder quantity
+                              child: Text('1'),
                             ),
                             IconButton(
                               visualDensity: VisualDensity.compact,
                               icon: const Icon(Icons.add),
-                              onPressed: () {
-                                // TODO: increment quantity
-                              },
+                              onPressed: () {},
                             ),
                           ],
                         ),
                       ),
                     ],
                   ),
-
                   const SizedBox(height: 24),
-
-                  // Add to Cart button
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
-                      onPressed: () {
-                        // TODO: implement add to cart logic
-                      },
+                      onPressed: () {},
                       style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(
                           vertical: 16,
@@ -290,7 +252,6 @@ class ProductPage extends StatelessWidget {
                 ],
               ),
             ),
-
             const SizedBox(height: 24),
             const AppFooter(),
           ],

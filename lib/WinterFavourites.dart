@@ -3,19 +3,18 @@ import 'navbar.dart';
 import 'footer.dart';
 import 'Advert.dart';
 
-// You can edit each item here:
 class CollectionItem {
   final String title;
   final String imageUrl;
   final bool isNetworkImage;
-  final String price; // <-- added
+  final String price;
   final VoidCallback? onTap;
 
   const CollectionItem({
     required this.title,
     required this.imageUrl,
-    this.isNetworkImage = false, // <‑‑ default to asset if not specified
-    required this.price, // <-- added
+    this.isNetworkImage = false,
+    required this.price,
     this.onTap,
   });
 }
@@ -29,16 +28,11 @@ class WinterPage extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // 0. Advert banner fixed at the very top (outside scroll)
           const AdvertBanner(),
-
           const SizedBox(height: 16),
-
-          // Scrollable content below
           Expanded(
             child: CustomScrollView(
               slivers: [
-                // 1. NavBar first
                 SliverToBoxAdapter(
                   child: NavBar(
                     onPlaceholderPressed: () {
@@ -46,8 +40,6 @@ class WinterPage extends StatelessWidget {
                     },
                   ),
                 ),
-
-                // 2. Mock Filter / Sort row just below the NavBar
                 SliverToBoxAdapter(
                   child: Padding(
                     padding:
@@ -55,19 +47,15 @@ class WinterPage extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        // Mock Filter By
                         OutlinedButton.icon(
                           onPressed: () {
-                            // TODO: open filter sheet
                             print('Filter by pressed');
                           },
                           icon: const Icon(Icons.filter_list, size: 18),
                           label: const Text('Filter by'),
                         ),
-                        // Mock Sort By
                         OutlinedButton.icon(
                           onPressed: () {
-                            // TODO: open sort options
                             print('Sort by pressed');
                           },
                           icon: const Icon(Icons.sort, size: 18),
@@ -77,8 +65,6 @@ class WinterPage extends StatelessWidget {
                     ),
                   ),
                 ),
-
-                // 3. Title
                 const SliverToBoxAdapter(
                   child: Padding(
                     padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
@@ -93,8 +79,6 @@ class WinterPage extends StatelessWidget {
                     ),
                   ),
                 ),
-
-                // 4. Products grid
                 SliverPadding(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 16,
@@ -117,8 +101,6 @@ class WinterPage extends StatelessWidget {
                     ),
                   ),
                 ),
-
-                // 5. Footer as part of scroll
                 const SliverToBoxAdapter(
                   child: AppFooter(),
                 ),
@@ -130,7 +112,6 @@ class WinterPage extends StatelessWidget {
     );
   }
 
-  // WINTER COLLECTION ITEMS
   List<CollectionItem> get _items => const [
         CollectionItem(
           title: 'UPSU Winter Hoodie',
@@ -200,7 +181,7 @@ class CollectionGridItem extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           Text(
-            item.title, // product name
+            item.title,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: const TextStyle(
@@ -209,7 +190,7 @@ class CollectionGridItem extends StatelessWidget {
           ),
           const SizedBox(height: 4),
           Text(
-            item.price, // product price
+            item.price,
             style: const TextStyle(
               color: Colors.grey,
             ),

@@ -59,8 +59,6 @@ class NavBar extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-
-                // Icons + dropdown menu
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -85,12 +83,9 @@ class NavBar extends StatelessWidget {
                       icon: const Icon(Icons.shopping_bag_outlined, size: 20),
                       onPressed: () {},
                     ),
-
-                    // Actual dropdown menu
                     PopupMenuButton<String>(
                       icon: const Icon(Icons.menu),
                       onSelected: (value) {
-                        // Options don't have to work; placeholders wired where you already have them
                         switch (value) {
                           case 'home':
                             if (!isCurrent('/main')) navigateToHome(context);
@@ -148,7 +143,6 @@ class NavBar extends StatelessWidget {
           );
         }
 
-        // DESKTOP / TABLET NAVBAR (show all items except current route)
         return Container(
           height: 72,
           color: Colors.white,
@@ -274,7 +268,6 @@ class NavBar extends StatelessWidget {
                         );
                       },
                     ),
-                    // ...existing code for About, UPSU, etc.
                   ],
                 ),
               ),

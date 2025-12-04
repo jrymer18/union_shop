@@ -68,19 +68,13 @@ class AppFooter extends StatelessWidget {
                 const SizedBox(height: 8),
                 Text('Help and Information',
                     style: lineStyle(14, weight: FontWeight.bold)),
-
                 const SizedBox(height: 24),
-
-                // --- Fake email subscribe shop ---
                 _EmailSubscribeSection(textColor: textColor),
-
-                // Add a spacer to push payment methods to the bottom
                 const SizedBox(height: 16),
                 const Divider(),
                 const SizedBox(height: 8),
               ],
             ),
-            // Payment methods at the very bottom
             Wrap(
               spacing: 8,
               runSpacing: 8,
