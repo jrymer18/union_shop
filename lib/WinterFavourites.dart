@@ -1,208 +1,193 @@
 import 'package:flutter/material.dart';
-import 'Advert.dart';
 import 'navbar.dart';
-import 'footer.dart';
+// Removed unused import for 'footer.dart'
+import 'Advert.dart';
 
-class WinterFavouritesPage extends StatelessWidget {
-  const WinterFavouritesPage({super.key});
+// You can edit each item here:
+class CollectionItem {
+  final String title;
+  final String imageUrl;
+  final bool isNetworkImage;
+  final String price; // <-- added
+  final VoidCallback? onTap;
+
+  const CollectionItem({
+    required this.title,
+    required this.imageUrl,
+    this.isNetworkImage = false, // <‑‑ default to asset if not specified
+    required this.price, // <-- added
+    this.onTap,
+  });
+}
+
+class WinterPage extends StatelessWidget {
+  const WinterPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Winter Favourites'),
-      ),
-      drawer: Drawer(
-        child: ListView(
-          children: const [
-            DrawerHeader(child: Text('Menu')),
-          ],
-        ),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const AdvertBanner(),
-            NavBar(
-              onPlaceholderPressed: () {
-                // handle placeholder routes
-              },
-            ),
-            const SizedBox(height: 24),
-            const Center(
-              child: Column(
-                children: [
-                  Text(
-                    'Winter Favourites',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 28,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  SizedBox(height: 8),
-                  Text(
-                    'Shop all of this seasons must haves in one place!',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.grey,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 24),
-            Expanded(
-              child: LayoutBuilder(
-                builder: (context, constraints) {
-                  final bool isMobile = constraints.maxWidth < 600;
-                  final int crossAxisCount = isMobile ? 2 : 3;
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // 0. Advert banner fixed at the very top (outside scroll)
+          const AdvertBanner(),
 
-                  return SingleChildScrollView(
-                    child: Column(
+          const SizedBox(height: 16),
+
+          // Scrollable content below
+          Expanded(
+            child: CustomScrollView(
+              slivers: [
+                // 1. NavBar first
+                SliverToBoxAdapter(
+                  child: NavBar(
+                    onPlaceholderPressed: () {
+                      print('Placeholder pressed');
+                    },
+                  ),
+                ),
+
+                // 2. Mock Filter / Sort row just below the NavBar
+                SliverToBoxAdapter(
+                  child: Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: GridView.count(
-                            crossAxisCount: crossAxisCount,
-                            mainAxisSpacing: 16,
-                            crossAxisSpacing: 16,
-                            shrinkWrap: true,
-                            physics: const NeverScrollableScrollPhysics(),
-                            childAspectRatio: 0.75,
-                            children: const [
-                              _WinterProductCard(
-                                imageUrl: 'https://via.placeholder.com/300x300',
-                                name: 'Winter Hoodie',
-                                price: '£29.99',
-                              ),
-                              _WinterProductCard(
-                                imageUrl: 'https://via.placeholder.com/300x300',
-                                name: 'Beanie Hat',
-                                price: '£9.99',
-                              ),
-                              _WinterProductCard(
-                                imageUrl: 'https://via.placeholder.com/300x300',
-                                name: 'Scarf',
-                                price: '£14.99',
-                              ),
-                              _WinterProductCard(
-                                imageUrl: 'https://via.placeholder.com/300x300',
-                                name: 'Gloves',
-                                price: '£7.99',
-                              ),
-                              _WinterProductCard(
-                                imageUrl: 'https://via.placeholder.com/300x300',
-                                name: 'Fleece Jacket',
-                                price: '£39.99',
-                              ),
-                              _WinterProductCard(
-                                imageUrl: 'https://via.placeholder.com/300x300',
-                                name: 'Thermal Mug',
-                                price: '£12.99',
-                              ),
-                            ],
-                          ),
+                        // Mock Filter By
+                        OutlinedButton.icon(
+                          onPressed: () {
+                            // TODO: open filter sheet
+                            print('Filter by pressed');
+                          },
+                          icon: const Icon(Icons.filter_list, size: 18),
+                          label: const Text('Filter by'),
                         ),
-                        const AppFooter(), // footer now scrolls with content
+                        // Mock Sort By
+                        OutlinedButton.icon(
+                          onPressed: () {
+                            // TODO: open sort options
+                            print('Sort by pressed');
+                          },
+                          icon: const Icon(Icons.sort, size: 18),
+                          label: const Text('Sort by'),
+                        ),
                       ],
                     ),
-                  );
-                },
-              ),
+                  ),
+                ),
+
+                // 3. Title
+                const SliverToBoxAdapter(
+                  child: Padding(
+                    padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
+                    child: Center(
+                      child: Text(
+                        'Collections',
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+
+                // ...your grid sliver(s) go here...
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
+
+  // WINTER COLLECTION ITEMS
+  List<CollectionItem> get _items => const [
+        CollectionItem(
+          title: 'UPSU Winter Hoodie',
+          imageUrl:
+              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
+          isNetworkImage: true,
+          price: '£29.99',
+        ),
+        CollectionItem(
+          title: 'UPSU Pom-Pom Beanie',
+          imageUrl:
+              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
+          isNetworkImage: true,
+          price: '£14.99',
+        ),
+        CollectionItem(
+          title: 'UPSU Winter Scarf',
+          imageUrl:
+              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
+          isNetworkImage: true,
+          price: '£12.50',
+        ),
+        CollectionItem(
+          title: 'UPSU Fleece Jacket',
+          imageUrl:
+              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
+          isNetworkImage: true,
+          price: '£39.99',
+        ),
+        CollectionItem(
+          title: 'UPSU Winter Bundle',
+          imageUrl:
+              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
+          isNetworkImage: true,
+          price: '£59.99',
+        ),
+      ];
 }
 
-class _WinterProductCard extends StatelessWidget {
-  final String imageUrl;
-  final String name;
-  final String price;
+class CollectionGridItem extends StatelessWidget {
+  final CollectionItem item;
 
-  const _WinterProductCard({
-    required this.imageUrl,
-    required this.name,
-    required this.price,
-  });
+  const CollectionGridItem({super.key, required this.item});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        AspectRatio(
-          aspectRatio: 1,
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(8),
-            child: Image.network(
-              imageUrl,
-              fit: BoxFit.cover,
+    return InkWell(
+      onTap: item.onTap,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: item.isNetworkImage
+                  ? Image.network(
+                      item.imageUrl,
+                      fit: BoxFit.cover,
+                      width: double.infinity,
+                    )
+                  : Image.asset(
+                      item.imageUrl,
+                      fit: BoxFit.cover,
+                      width: double.infinity,
+                    ),
             ),
           ),
-        ),
-        const SizedBox(height: 8),
-        Text(
-          name,
-          style: const TextStyle(
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        const SizedBox(height: 4),
-        Text(
-          price,
-          style: const TextStyle(
-            color: Colors.purple,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class WinterFavourites extends StatelessWidget {
-  const WinterFavourites({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Winter Favourites'),
-      ),
-      body: const Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // New header below navbar
-            Text(
-              'Winter Favourites',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
+          const SizedBox(height: 8),
+          Text(
+            item.title, // product name
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: const TextStyle(
+              fontWeight: FontWeight.w600,
             ),
-            SizedBox(height: 4),
-            Text(
-              'Shop all of this seasons must haves in one place!',
-              style: TextStyle(
-                fontSize: 14,
-                color: Colors.grey,
-              ),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            item.price, // product price
+            style: const TextStyle(
+              color: Colors.grey,
             ),
-            SizedBox(height: 16),
-
-            // ...existing code...
-            // e.g. Expanded(child: GridView.builder(...))
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

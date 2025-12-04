@@ -30,7 +30,7 @@ class UnionShopApp extends StatelessWidget {
         '/product': (context) => const ProductPage(),
         '/log': (context) => const AuthenticationPage(),
         '/collections': (context) => const CollectionsPage(),
-        '/winter': (context) => const WinterFavouritesPage(),
+        '/winter': (context) => const WinterPage(),
       },
     );
   }
@@ -74,10 +74,10 @@ class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
-  HomePageState createState() => HomePageState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class HomePageState extends State<HomeScreen> {
+class _HomePageState extends State<HomeScreen> {
   final _pageController = PageController();
   int _currentPage = 0;
 
