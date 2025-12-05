@@ -250,7 +250,7 @@ class SalePage extends StatelessWidget {
   List<CollectionItem> get _saleItems => const [
         CollectionItem(
           title: 'UPSU Winter Hoodie',
-          imageUrl: 'assets/images/upsu_winter_hoodie.png',
+          imageUrl: 'assets/images/essentalshoodie.png',
           isNetworkImage: false,
           price: '£29.99',
         ),

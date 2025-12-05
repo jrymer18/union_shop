@@ -103,7 +103,7 @@ class CollectionsPage extends StatelessWidget {
         ),
         CollectionItem(
           title: 'Signiture Range',
-          imageUrl: 'assets/images/s_tshirt.png1',
+          imageUrl: 'assets/images/s_tshirt.png',
           isNetworkImage: false,
         ),
         CollectionItem(
