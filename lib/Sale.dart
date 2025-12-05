@@ -113,7 +113,7 @@ Widget build(BuildContext context) {
 List<CollectionItem> get _items => const [
       CollectionItem(
         title: 'UPSU Winter Hoodie',
-        imageUrl: 'assets/images/essentalshoodie.png',
+        imageUrl: 'assets/images/upsu_winter_hoodie.png',
         isNetworkImage: false,
         price: '£29.99',
       ),
@@ -125,7 +125,7 @@ List<CollectionItem> get _items => const [
       ),
       CollectionItem(
         title: 'Jumper',
-        imageUrl: 'assets/images/neutral_jumper.png',
+        imageUrl: 'assets/images/jumper.png',
         isNetworkImage: false,
         price: '£12.50',
       ),
@@ -136,7 +136,7 @@ List<CollectionItem> get _items => const [
         price: '£39.99',
       ),
       CollectionItem(
-        title: 'bag_cover',
+        title: 'Bag Cover',
         imageUrl: 'assets/images/bag_cover.png',
         isNetworkImage: false,
         price: '£59.99',
@@ -249,44 +249,34 @@ class SalePage extends StatelessWidget {
 
   List<CollectionItem> get _saleItems => const [
         CollectionItem(
-          title: 'UPSU Hoodie - 30% OFF',
-          imageUrl:
-              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-          isNetworkImage: true,
-          originalPrice: '£29.99',
-          price: '£19.99',
+          title: 'UPSU Winter Hoodie',
+          imageUrl: 'assets/images/upsu_winter_hoodie.png',
+          isNetworkImage: false,
+          price: '£29.99',
         ),
         CollectionItem(
-          title: 'UPSU Beanie - 20% OFF',
-          imageUrl:
-              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-          isNetworkImage: true,
-          originalPrice: '£12.50',
-          price: '£9.99',
+          title: 'Beanie',
+          imageUrl: 'assets/images/beanie.png',
+          isNetworkImage: false,
+          price: '£14.99',
         ),
         CollectionItem(
-          title: 'UPSU Scarf - 25% OFF',
-          imageUrl:
-              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-          isNetworkImage: true,
-          originalPrice: '£11.99',
-          price: '£8.99',
+          title: 'Jumper',
+          imageUrl: 'assets/images/jumper.png',
+          isNetworkImage: false,
+          price: '£12.50',
         ),
         CollectionItem(
-          title: 'UPSU Fleece - 35% OFF',
-          imageUrl:
-              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-          isNetworkImage: true,
-          originalPrice: '£39.99',
-          price: '£24.99',
+          title: 'Zip Hoodie',
+          imageUrl: 'assets/images/zip_hoodie.png',
+          isNetworkImage: false,
+          price: '£39.99',
         ),
         CollectionItem(
-          title: 'UPSU Bundle - 40% OFF',
-          imageUrl:
-              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-          isNetworkImage: true,
-          originalPrice: '£59.99',
-          price: '£34.99',
+          title: 'Bag Cover',
+          imageUrl: 'assets/images/bag_cover.png',
+          isNetworkImage: false,
+          price: '£59.99',
         ),
       ];
 }
